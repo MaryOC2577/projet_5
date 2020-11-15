@@ -2,12 +2,11 @@
 
 import mysql.connector
 
-class database :
 
-    mydb=mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="Ma25Bo77Yi181"
+class database:
+
+    mydb = mysql.connector.connect(
+        host="localhost", user="root", password="Ma25Bo77Yi181"
     )
 
     mycursor = mydb.cursor()

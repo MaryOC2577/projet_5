@@ -2,6 +2,7 @@
 
 
 import mysql.connector
+from config import SCRIPTSQL
 
 
 class InitDatabase:
@@ -21,5 +22,5 @@ class InitDatabase:
     # else:
     # mycursor.execute("CREATE DATABASE aliment")
 
-    file = open(myscript, "r")
+    file = open(SCRIPTSQL, "r")
     mycursor.execute(file)

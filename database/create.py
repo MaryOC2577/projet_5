@@ -1,17 +1,9 @@
-""" Create database """
+"""Create database."""
 
 import mysql.connector
 
+mydb = mysql.connector.connect(
+    host="localhost", user="root", password="Ma25Bo77Yi181"
+)
 
-class database:
-
-    mydb = mysql.connector.connect(
-        host="localhost", user="root", password="Ma25Bo77Yi181"
-    )
-
-    mycursor = mydb.cursor()
-
-    mycursor.execute("SHOW DATABASES")
-
-    for x in mycursor:
-        print(x)
+print(mydb)

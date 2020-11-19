@@ -2,7 +2,7 @@
 
 
 import mysql.connector
-from projet_5.config import SCRIPTSQL
+from projet5.config import SCRIPTSQL
 
 
 class InitDatabase:
@@ -14,14 +14,13 @@ class InitDatabase:
 
     mycursor = mydb.cursor()
 
-    mycursor.execute("SHOW DATABASES")
+    # mycursor.execute("SHOW DATABASES")
 
-    for x in mycursor:
-        print(x)
+    # for x in mycursor:
     # if x == "aliment":
     # print("La base existe déjà.")
     # else:
     # mycursor.execute("CREATE DATABASE aliment")
 
-    # file = open(SCRIPTSQL, "r")
-    # mycursor.execute(file)
+    file = open(SCRIPTSQL, "r")
+    mycursor.execute(file)

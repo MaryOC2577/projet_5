@@ -16,11 +16,12 @@ class InitDatabase:
 
     mycursor.execute("SHOW DATABASES")
 
-    # for x in mycursor:
+    for x in mycursor:
+        print(x)
     # if x == "aliment":
     # print("La base existe déjà.")
     # else:
     # mycursor.execute("CREATE DATABASE aliment")
 
-    file = open(SCRIPTSQL, "r")
-    mycursor.execute(file)
+    # file = open(SCRIPTSQL, "r")
+    # mycursor.execute(file)

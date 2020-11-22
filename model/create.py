@@ -2,7 +2,7 @@
 
 
 import mysql.connector
-from projet5.config import SCRIPTSQL
+from config import SCRIPTSQL
 
 
 class InitDatabase:

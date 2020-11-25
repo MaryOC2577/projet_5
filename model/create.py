@@ -15,7 +15,8 @@ class InitDatabase:
         mycursor = mydb.cursor()
         mycursor.execute("CREATE DATABASE product")
 
-    def executeScriptsFromFile(self, filename):
+    def executesql(self, filename):
+        """Execute sql creation script."""
         fd = open(filename, "r")
         sqlFile = fd.read()
         sqlCommands = sqlFile.split(";")

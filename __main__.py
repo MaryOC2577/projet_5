@@ -5,4 +5,4 @@ from config import SCRIPTSQL
 
 database = InitDatabase()
 
-database.executeScriptFromFile(SCRIPTSQL)
+database.executesql(SCRIPTSQL)

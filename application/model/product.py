@@ -1,7 +1,7 @@
 """Class Product."""
 
 import mysql.connector
-from connection import Connection
+from application.model.connection import Connection
 
 
 class Product:

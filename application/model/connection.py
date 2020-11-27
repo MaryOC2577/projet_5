@@ -6,13 +6,18 @@ import mysql.connector
 class Connection:
     """Class connection."""
 
-    def set(self):
-        """Connect to database."""
-        cnx = mysql.connector.connect(
+    def __init__(self):
+        self.db = mysql.connector.connect(
             host="localhost", user="root", password="Ma25Bo77Yi181"
         )
-        mycursor = cnx.cursor()
+
+    def get_cursor(self):
+        """Connect to database."""
+        return self.db.cursor()
 
     def close(self):
         """Close the connection."""
-        cnx.close
+        self.db.close()
+
+
+connection = Connection()

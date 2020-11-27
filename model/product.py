@@ -1,7 +1,7 @@
 """Class Product."""
 
 import mysql.connector
-from create import InitDatabase
+from connection import Connection
 
 
 class Product:
@@ -18,18 +18,14 @@ class Product:
 
     def listp(self):
         """Add a product."""
-        InitDatabase.set_connection.mycursor.execute("SELECT * FORM Product;")
+        Connection.set.mycursor.execute("SELECT * FORM Product;")
 
     def get(self):
         """Get a product."""
 
     def create(self):
         """Create a product."""
-        mydb = mysql.connector.connect(
-            host="localhost", user="root", password="Ma25Bo77Yi181"
-        )
-        mycursor = mydb.cursor()
-        mycursor.execute(
+        Connection.set.mycursor.execute(
             "INSERT INTO TABLE Product VALUES("
             + id
             + ", "

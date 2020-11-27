@@ -2,6 +2,7 @@
 
 
 import mysql.connector
+from connection import Connection
 
 
 class InitDatabase:
@@ -15,16 +16,6 @@ class InitDatabase:
         mycursor = mydb.cursor()
         mycursor.execute("CREATE DATABASE product")
 
-    def set_connection(self):
-        """Connect to database."""
-        mydb = mysql.connector.connect(
-            host="localhost", user="root", password="Ma25Bo77Yi181"
-        )
-        mycursor = mydb.cursor()
-
-    def close_connection(self):
-        """Close the connection."""
-
     def executesql(self, filename):
         """Execute sql creation script."""
         fd = open(filename, "r")
@@ -33,6 +24,6 @@ class InitDatabase:
         for command in sqlCommands:
             try:
                 if command.strip() != "":
-                    cursor.execute(command)
+                    Connection.set.mycursor.execute(command)
             except IOError as msg:
                 print("Command skipped: "), msg

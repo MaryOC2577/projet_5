@@ -35,7 +35,7 @@ class Product:
             + ", "
             + origin
             + ", "
-            + substitue
+            + substitute
             + ", "
             + nutriscore
             + ")"

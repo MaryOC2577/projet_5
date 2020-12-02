@@ -1,8 +1,7 @@
 """Test."""
 
 import mysql.connector
-
-# from config import SCRIPTSQL
+from config import SCRIPTSQL
 
 
 mydb = mysql.connector.connect(
@@ -12,7 +11,7 @@ mycursor = mydb.cursor()
 # mycursor.execute("CREATE DATABASE product")
 
 
-fd = open("scriptsql.sql", "r")
+fd = open(SCRIPTSQL, "r")
 sqlFile = fd.read()
 sqlCommands = sqlFile.split(";")
 for command in sqlCommands:

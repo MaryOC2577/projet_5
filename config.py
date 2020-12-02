@@ -4,6 +4,8 @@ from pathlib import Path
 
 
 BASE_DIR = Path(".").resolve()
-DATA_DIR = BASE_DIR / "data"
+APP_DIR = BASE_DIR / "application"
+DATA_DIR = APP_DIR / "data"
+
 
 SCRIPTSQL = DATA_DIR / "scriptsql.sql"

@@ -1,8 +1,5 @@
 SET
   NAMES utf8;
-DROP DATABASE IF EXISTS product;
-CREATE DATABASE product;
-USE product;
 CREATE TABLE Product (
     id SMALLINT AUTO_INCREMENT,
     product_name VARCHAR(200) NOT NULL,

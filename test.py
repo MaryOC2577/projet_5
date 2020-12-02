@@ -8,7 +8,7 @@ mydb = mysql.connector.connect(
     host="localhost", user="root", password="Ma25Bo77Yi181", database="product"
 )
 mycursor = mydb.cursor()
-# mycursor.execute("CREATE DATABASE product")
+mycursor.execute("CREATE DATABASE product")
 
 
 fd = open(SCRIPTSQL, "r")

@@ -7,6 +7,8 @@ verify_ssl = true
 
 [packages]
 mysql-connector-python = "*"
+requests = "*"
+requets = "*"
 
 [requires]
 python_version = "3.8"

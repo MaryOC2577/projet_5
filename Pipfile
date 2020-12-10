@@ -8,7 +8,11 @@ verify_ssl = true
 [packages]
 mysql-connector-python = "*"
 requests = "*"
-requets = "*"
+black = "*"
+flake8 = "*"
+pylint = "*"
+mypy = "*"
+pydocstyle = "*"
 
 [requires]
 python_version = "3.8"

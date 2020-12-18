@@ -6,7 +6,7 @@ import requests
 payload = {
     "search_terms": "",
     "sort_by": "unique_scans_n",
-    "page_size": 10,
+    "page_size": 5,
     "json": 1,
 }
 
@@ -22,4 +22,4 @@ products = result["products"]
 
 
 for product in products:
-    print(product["product_name"], "-", product["stores"])
+    print(product["stores"])

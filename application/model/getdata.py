@@ -8,7 +8,7 @@ class OpenFoodFacts:
     """Handle open food facts requests."""
 
     def __init__(self):
-        """Init."""
+        """Initialize."""
         self.products = {}
 
     def get_product_page(self, number_per_page: int) -> list:
@@ -26,4 +26,4 @@ class OpenFoodFacts:
             json.dump(res.text, f)
 
         result = res.json()
-        self.products = result["poducts"]
+        self.products = result["products"]

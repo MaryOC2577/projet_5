@@ -13,21 +13,18 @@ class ProductCleaner:
 
     def clean_product(self, product: dict) -> dict:
         """Clean a product."""
-        for key in product:
-            if product[key] == "name":
-                self.cleaned_products["name"] = product["name"]
-            if product[key] == "stores":
-                self.cleaned_products["stores"] = product["stores"]
-            if product[key] == "manufacturing_places_tag":
-                self.cleaned_products["manufacturing_places_tag"] = product[
-                    "manufacturing_places_tag"
-                ]
-            if product[key] == "categories":
-                self.cleaned_products["categories"] = product["categories"]
-            if product[key] == "nutrition_grade_fr":
-                self.cleaned_products["nutrition_grade_fr"] = product[
-                    "nutrition_grade_fr"
-                ]
+
+        self.cleaned_products["name"] = product["name"]
+        if not self.cleaned_products["name"]:
+            return None
+        self.cleaned_products["stores"] = product["stores"]
+        self.cleaned_products["manufacturing_places_tag"] = product[
+            "manufacturing_places_tag"
+        ]
+        self.cleaned_products["categories"] = product["categories"]
+        self.cleaned_products["nutrition_grade_fr"] = product[
+            "nutrition_grade_fr"
+        ]
 
     def get_products_from_off(self):
         """Get the products from OFF and save them in the database."""

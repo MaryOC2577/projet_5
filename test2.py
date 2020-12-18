@@ -22,4 +22,4 @@ products = result["products"]
 
 
 for product in products:
-    print(product["stores"])
+    print(product["name"])

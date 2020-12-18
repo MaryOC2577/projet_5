@@ -6,7 +6,7 @@ import requests
 payload = {
     "search_terms": "",
     "sort_by": "unique_scans_n",
-    "page_size": 5,
+    "page_size": 1,
     "json": 1,
 }
 

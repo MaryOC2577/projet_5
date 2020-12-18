@@ -51,6 +51,6 @@ class Product:
     def save(cls, cleaned_product: dict) -> bool:
         mycursor = Connection()
         mycursor.get_cursor()
-        mycursor.execute("INSERT INTO TABLE PRODUCT VALUES" + )
+        # mycursor.execute("INSERT INTO TABLE PRODUCT VALUES" + )
         mycursor.close()
         return true

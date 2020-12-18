@@ -1,6 +1,6 @@
 """Class Product."""
 
-import mysql.connector
+# import mysql.connector
 from application.model.connection import Connection
 
 
@@ -46,3 +46,11 @@ class Product:
 
     def delete(self):
         """Delete a product."""
+
+    @classmethod
+    def save(cls, cleaned_product: dict) -> bool:
+        mycursor = Connection()
+        mycursor.get_cursor()
+        mycursor.execute("INSERT INTO TABLE PRODUCT VALUES" + )
+        mycursor.close()
+        return true

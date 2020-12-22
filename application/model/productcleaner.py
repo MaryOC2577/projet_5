@@ -11,28 +11,41 @@ class ProductCleaner:
         """Initialize."""
         self.cleaned_products = {}
 
-    def clean_product(self, product: dict) -> dict:
+    def clean_product(self, products: list):
         """Clean a product."""
-        for x_product in product:
-            self.cleaned_products["name"] = x_product["name"]
-            if not self.cleaned_products["name"]:
-                return None
-            self.cleaned_products["stores"] = x_product["stores"]
-            self.cleaned_products["manufacturing_places_tag"] = x_product[
-                "manufacturing_places_tag"
-            ]
-            self.cleaned_products["categories"] = x_product["categories"]
-            self.cleaned_products["nutrition_grade_fr"] = x_product[
-                "nutrition_grade_fr"
-            ]
+        x = 0
+        for product in products:
+            self.cleaned_products[x] = list()
+            if (
+                not product.get("product_name_fr")
+                or not product.get("stores")
+                or not product.get("categories")
+                or not product.get("nutrition_grade_fr")
+            ):
+                continue
+            else:
+                self.cleaned_products[x].append(product.get("product_name_fr"))
+                self.cleaned_products[x].append(
+                    (product.get("stores")).split(",")
+                )
+                self.cleaned_products[x].append(
+                    (product.get("categories")).split(",")
+                )
+                self.cleaned_products[x].append(
+                    product.get("nutrition_grade_fr")
+                )
+                x += 1
 
     def get_products_from_off(self):
         """Get the products from OFF and save them in the database."""
         off_products = OpenFoodFacts()
         # product = Product()
-        off_products.get_product_page(2)
+        off_products.get_product_page(50)
         self.clean_product(off_products.products)
-        print(self.cleaned_products)
+        # print(self.cleaned_products)
+        for key, value in self.cleaned_products.items():
+            print(key, " / ", value)
+            print()
         # if self.cleaned_products:
         # product.save(self.cleaned_products)
         # else:

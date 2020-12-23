@@ -49,8 +49,19 @@ class Product:
 
     @classmethod
     def save(cls, cleaned_product: dict) -> bool:
+        """Save products in the database."""
         mycursor = Connection()
-        mycursor.get_cursor()
-        # mycursor.execute("INSERT INTO TABLE PRODUCT VALUES" + )
+        cursor = mycursor.get_cursor()
+
+        add_categories = (
+            "INSERT INTO CATEGORIES (id, cat_name) VALUES (%s, %s);"
+        )
+
+        # add_catprod = "INSERT INTO CATPROD (id_cat, id_prod) VALUES (%s, %s);"
+
+        for key, value in cleaned_product.items():
+            # cursor.execute("SELECT HELLO")
+            cursor.execute(add_categories, key, value[3][0])
+
         mycursor.close()
-        return true
+        return True

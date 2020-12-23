@@ -19,6 +19,7 @@ class ProductCleaner:
             if (
                 not product.get("product_name_fr")
                 or not product.get("stores")
+                or not product.get("manufacturing_places")
                 or not product.get("categories")
                 or not product.get("nutrition_grade_fr")
             ):
@@ -29,24 +30,27 @@ class ProductCleaner:
                     (product.get("stores")).split(",")
                 )
                 self.cleaned_products[x].append(
+                    (product.get("manufacturing_places")).split(",", 1)
+                )
+                self.cleaned_products[x].append(
                     (product.get("categories")).split(",")
                 )
                 self.cleaned_products[x].append(
-                    product.get("nutrition_grade_fr")
+                    (product.get("nutrition_grade_fr")).upper()
                 )
                 x += 1
 
     def get_products_from_off(self):
         """Get the products from OFF and save them in the database."""
         off_products = OpenFoodFacts()
-        # product = Product()
-        off_products.get_product_page(50)
+        product = Product()
+        off_products.get_product_page(15)
         self.clean_product(off_products.products)
-        # print(self.cleaned_products)
         for key, value in self.cleaned_products.items():
             print(key, " / ", value)
             print()
-        # if self.cleaned_products:
-        # product.save(self.cleaned_products)
-        # else:
-        # print("There is a non complying product.")
+
+        if self.cleaned_products:
+            product.save(self.cleaned_products)
+        else:
+            print("There is a non complying product.")

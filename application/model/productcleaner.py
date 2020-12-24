@@ -30,7 +30,7 @@ class ProductCleaner:
                     (product.get("stores")).split(",")
                 )
                 self.cleaned_products[x].append(
-                    (product.get("manufacturing_places")).split(",", 1)
+                    product.get("manufacturing_places")
                 )
                 self.cleaned_products[x].append(
                     (product.get("categories")).split(",")

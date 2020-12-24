@@ -60,8 +60,6 @@ class Product:
         # add_catprod = "INSERT INTO CATPROD (id_cat, id_prod) VALUES (%s, %s);"
 
         for key, value in cleaned_product.items():
-            # cursor.execute("SELECT HELLO")
             cursor.execute(add_categories, key, value[3][0])
-
-        mycursor.close()
+        cursor.close()
         return True

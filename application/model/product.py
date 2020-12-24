@@ -15,31 +15,17 @@ class Product:
         origin = ""
         substitute = ""
         nutriscore = ""
+        self.mycursor = Connection()
 
     def listp(self):
-        """Add a product."""
-        Connection.set.mycursor.execute("SELECT * FORM Product;")
+        """ a product."""
+        # Connection.set.mycursor.execute("SELECT * FORM Product;")
 
     def get(self):
         """Get a product."""
 
     def create(self):
         """Create a product."""
-        Connection.set.mycursor.execute(
-            "INSERT INTO TABLE Product VALUES("
-            + id
-            + ", "
-            + product_name
-            + ", "
-            + shop
-            + ", "
-            + origin
-            + ", "
-            + substitute
-            + ", "
-            + nutriscore
-            + ")"
-        )
 
     def update(self):
         """Update a product."""
@@ -47,17 +33,15 @@ class Product:
     def delete(self):
         """Delete a product."""
 
-    @classmethod
-    def save(cls, cleaned_product: dict) -> bool:
+    def save(self, cleaned_product: dict) -> bool:
         """Save products in the database."""
-        mycursor = Connection()
-        cursor = mycursor.get_cursor()
+        cursor = self.mycursor.get_cursor()
 
         add_categories = "INSERT INTO CATEGORY (id, cat_name) VALUES (%s, %s);"
 
         # add_catprod = "INSERT INTO CATPROD (id_cat, id_prod) VALUES (%s, %s);"
 
         for key, value in cleaned_product.items():
-            cursor.execute(add_categories, key, value[3][0])
+            cursor.execute(add_categories, key, value)
         cursor.close()
         return True

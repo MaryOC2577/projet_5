@@ -53,9 +53,7 @@ class Product:
         mycursor = Connection()
         cursor = mycursor.get_cursor()
 
-        add_categories = (
-            "INSERT INTO CATEGORIES (id, cat_name) VALUES (%s, %s);"
-        )
+        add_categories = "INSERT INTO CATEGORY (id, cat_name) VALUES (%s, %s);"
 
         # add_catprod = "INSERT INTO CATPROD (id_cat, id_prod) VALUES (%s, %s);"
 

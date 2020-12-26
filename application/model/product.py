@@ -1,7 +1,6 @@
 """Class Product."""
 
-# import mysql.connector
-from application.model.connection import Connection
+from application.model.connection import connection
 
 
 class Product:
@@ -9,39 +8,39 @@ class Product:
 
     def __init__(self):
         """Initiate product class."""
-        id = int
-        name = ""
-        shop = ""
-        origin = ""
-        substitute = ""
-        nutriscore = ""
-        self.mycursor = Connection()
 
-    def listp(self):
-        """ a product."""
-        # Connection.set.mycursor.execute("SELECT * FORM Product;")
-
-    def get(self):
-        """Get a product."""
-
-    def create(self):
-        """Create a product."""
-
-    def update(self):
-        """Update a product."""
-
-    def delete(self):
-        """Delete a product."""
-
-    def save(self, cleaned_product: dict) -> bool:
+    @classmethod
+    def save(cls, cleaned_product: dict) -> bool:
         """Save products in the database."""
-        cursor = self.mycursor.get_cursor()
+        cursor = connection.get_cursor()
 
-        add_categories = "INSERT INTO CATEGORY (id, cat_name) VALUES (%s, %s);"
+        add_nutriscore = (
+            "INSERT INTO NUTRISCORE (id, nutri_value) VALUES (%s, %s)"
+        )
+        add_categories = (
+            "INSERT INTO CATEGORY (id, cat_name) VALUES (%(id)s, %(name)s)"
+        )
+        add_products = "INSERT INTO PRODUCT (id, product_name, shop, origin, substitute) VALUES (%(id)s, %(name)s, %(shop)s, %(origin)s, %(substitute)s)"
+        add_catprod = "INSERT INTO CATPROD (id_cat, id_prod) VALUES (%s, %s)"
 
-        # add_catprod = "INSERT INTO CATPROD (id_cat, id_prod) VALUES (%s, %s);"
+        for _, product in cleaned_product.items():
 
-        for key, value in cleaned_product.items():
-            cursor.execute(add_categories, key, value)
+            data_categories = {"id": None, "name": product[3]}
+
+            data_products = {
+                "id": None,
+                "name": product[0],
+                "shop": product[1],
+                "origin": product[2],
+                "substitute": None,
+            }
+
+            # cursor.execute(add_nutriscore, data_nutriscore)
+            cursor.execute(add_categories, data_categories)
+            cursor.execute(add_products, data_products)
+            # cursor.execute(add_catprod)
+
+        connection.db.commit()
         cursor.close()
+        connection.close()
         return True

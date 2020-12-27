@@ -17,7 +17,7 @@ class Nutriscore:
         add_nutriscore = (
             "INSERT INTO NUTRISCORE ",
             "(id, nutri_value) ",
-            "VALUES (%s, %s)",
+            "VALUES (%(id)s, %(value)s)",
         )
 
         for product in cleaned_product:

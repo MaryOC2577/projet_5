@@ -10,7 +10,7 @@ class Category:
         """Initiate category class."""
 
     @classmethod
-    def save(cls, cleaned_product: dict) -> bool:
+    def save(cls, cleaned_product: list) -> bool:
         """Save categories in the database."""
         cursor = connection.get_cursor()
 
@@ -18,8 +18,8 @@ class Category:
             "INSERT INTO CATEGORY (id, cat_name) VALUES (%(id)s, %(name)s)"
         )
 
-        for value in cleaned_product.values():
-            for cat_value in value[3]:
+        for product in cleaned_product:
+            for cat_value in product.get("categories"):
                 data_categories = {"id": None, "name": cat_value}
                 cursor.execute(add_categories, data_categories)
 

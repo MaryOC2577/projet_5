@@ -22,6 +22,6 @@ CREATE TABLE Catprod (
   );
 CREATE TABLE Nutriscore(
     id SMALLINT AUTO_INCREMENT NOT NULL,
-    nutri_value VARCHAR(200) NOT NULL,
+    nutri_value VARCHAR(200) NOT NULL UNIQUE,
     PRIMARY KEY(id)
   );

@@ -36,5 +36,4 @@ class Nutriscore:
 
         connection.db.commit()
         cursor.close()
-        connection.close()
         return True

@@ -11,7 +11,7 @@ CREATE TABLE Product (
   );
 CREATE TABLE Category (
     id SMALLINT AUTO_INCREMENT,
-    cat_name VARCHAR (200) NOT NULL,
+    cat_name VARCHAR (200) NOT NULL UNIQUE,
     PRIMARY KEY(id)
   );
 CREATE TABLE Catprod (

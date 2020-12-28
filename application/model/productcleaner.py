@@ -28,19 +28,20 @@ class ProductCleaner:
                 "name": product.get("product_name_fr"),
                 "stores": product.get("stores"),
                 "origin": product.get("manufacturing_places"),
-                "categories": (product.get("categories")).split(),
+                "categories": (product.get("categories")).split(","),
                 "nutriscore": (product.get("nutrition_grade_fr")).upper(),
             }
+
             self.cleaned_products.append(clean_product)
 
     def get_products_from_off(self):
         """Get the products from OFF and save them in the database."""
         off_products = OpenFoodFacts()
         nutriscore = Nutriscore()
-        # current_products = Product()
         category = Category()
+        current_products = Product()
 
-        off_products.get_product_page(10)
+        off_products.get_product_page(15)
         self.clean_product(off_products.products)
 
         for product in self.cleaned_products:
@@ -58,8 +59,8 @@ class ProductCleaner:
             print()
 
         if self.cleaned_products:
-            # category.save(self.cleaned_products)
-            # current_products.save(self.cleaned_products)
             nutriscore.save()
+            category.save(self.cleaned_products)
+            current_products.save(self.cleaned_products)
         else:
             print("There is a non complying product.")

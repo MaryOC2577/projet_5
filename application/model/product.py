@@ -15,8 +15,8 @@ class Product:
         cursor = connection.get_cursor()
 
         add_products = (
-            "INSERT INTO PRODUCT (id, product_name, shop, origin, substitute) ",
-            "VALUES (%(id)s, %(name)s, %(shop)s, %(origin)s, %(substitute)s) ",
+            "INSERT INTO PRODUCT (id, product_name, shop, origin, substitute) "
+            "VALUES (%(id)s, %(name)s, %(shop)s, %(origin)s, %(substitute)s)"
         )
 
         for product in cleaned_product:
@@ -31,5 +31,4 @@ class Product:
 
         connection.db.commit()
         cursor.close()
-        connection.close()
         return True

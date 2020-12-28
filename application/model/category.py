@@ -20,10 +20,12 @@ class Category:
 
         for product in cleaned_product:
             for cat_value in product.get("categories"):
-                data_categories = {"id": None, "name": cat_value}
+                data_categories = {
+                    "id": None,
+                    "name": cat_value.replace("fr:", ""),
+                }
                 cursor.execute(add_categories, data_categories)
 
         connection.db.commit()
         cursor.close()
-        connection.close()
         return True

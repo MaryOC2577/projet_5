@@ -4,6 +4,7 @@ from application.model.getdata import OpenFoodFacts
 from application.model.product import Product
 from application.model.category import Category
 from application.model.nutriscore import Nutriscore
+from application.model.catprod import CatProd
 
 
 class ProductCleaner:
@@ -40,6 +41,7 @@ class ProductCleaner:
         nutriscore = Nutriscore()
         category = Category()
         current_products = Product()
+        catprod = CatProd()
 
         off_products.get_product_page(15)
         self.clean_product(off_products.products)
@@ -62,5 +64,6 @@ class ProductCleaner:
             nutriscore.save()
             category.save(self.cleaned_products)
             current_products.save(self.cleaned_products)
+            # catprod.save(self.cleaned_products)
         else:
             print("There is a non complying product.")

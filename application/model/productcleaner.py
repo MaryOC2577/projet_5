@@ -64,6 +64,6 @@ class ProductCleaner:
             nutriscore.save()
             category.save(self.cleaned_products)
             current_products.save(self.cleaned_products)
-            # catprod.save(self.cleaned_products)
+            catprod.save(self.cleaned_products)
         else:
             print("There is a non complying product.")

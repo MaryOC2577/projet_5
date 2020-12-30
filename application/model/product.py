@@ -1,6 +1,7 @@
 """Class Product."""
 
 from application.model.connection import connection
+from application.model.nutriscore import Nutriscore
 
 
 class Product:
@@ -9,33 +10,30 @@ class Product:
     def __init__(self):
         """Initiate product class."""
 
-    def id_product(self, name_product):
+    def get_idproduct(self, name_product):
         """Returns the id according to the name."""
         cursor = connection.get_cursor()
-        id_temp = int
 
         id_query = (
-            "SELECT id FROM PRODUCT WHERE product_name ='%(name_product)s'"
+            "SELECT id FROM PRODUCT WHERE product_name ='%s'" & name_product
         )
 
         cursor.execute(id_query, name_product)
-
-        for id in cursor:
-            id_temp = id
-        cursor.close()
+        product_id = cursor.fetchone()[0]
 
         connection.db.commit()
         cursor.close()
-        return id_temp
+        return product_id
 
     @classmethod
     def save(cls, cleaned_product: list) -> bool:
         """Save products in the database."""
         cursor = connection.get_cursor()
+        nutri_score = Nutriscore()
 
         add_products = (
-            "INSERT INTO PRODUCT (id, product_name, shop, origin, substitute) "
-            "VALUES (%(id)s, %(name)s, %(shop)s, %(origin)s, %(substitute)s)"
+            "INSERT INTO PRODUCT (id, product_name, shop, origin, substitute, nutri_id) "
+            "VALUES (%(id)s, %(name)s, %(shop)s, %(origin)s, %(substitute)s, %(nutri_id)s)"
         )
 
         for product in cleaned_product:
@@ -45,6 +43,9 @@ class Product:
                 "shop": product.get("stores"),
                 "origin": product.get("origin"),
                 "substitute": None,
+                "nutri_id": nutri_score.get_idnutriscore(
+                    product.get("nutriscore")
+                ),
             }
             cursor.execute(add_products, data_products)
 

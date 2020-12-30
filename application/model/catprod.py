@@ -35,8 +35,8 @@ class CatProd:
 
         for product in temp_prod:
             data_catprod = {
-                "id_cat": catclass.id_category(product.get("cat_name")),
-                "id_prod": productclass.id_product(product.get("prod_name")),
+                "id_cat": catclass.get_idcategory(product.get("cat_name")),
+                "id_prod": productclass.get_idproduct(product.get("prod_name")),
             }
 
             cursor.execute(add_catprod, data_catprod)

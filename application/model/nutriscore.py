@@ -9,13 +9,28 @@ class Nutriscore:
     def __init__(self):
         """Initiate Nutriscore."""
 
+    def get_idnutriscore(self, nutri_value):
+        """Returns the id according to the name."""
+        cursor = connection.get_cursor()
+
+        id_query = (
+            "SELECT id FROM NUTRISCORE WHERE nutri_value = '%s'" % nutri_value
+        )
+
+        cursor.execute(id_query)
+        nutriscore_id = cursor.fetchone()[0]
+
+        connection.db.commit()
+        cursor.close()
+        return nutriscore_id
+
     @classmethod
     def save(cls) -> bool:
         """Save Nutriscore in database."""
         cursor = connection.get_cursor()
 
         add_nutriscore = (
-            "INSERT INTO NUTRISCORE "
+            "INSERT IGNORE INTO NUTRISCORE "
             "(id, nutri_value) VALUES (%(id)s, %(value)s)"
         )
 

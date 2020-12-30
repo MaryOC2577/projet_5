@@ -9,33 +9,28 @@ class Category:
     def __init__(self):
         """Initiate category class."""
 
-    def id_category(self, name_category):
+    def get_idcategory(self, name_category):
         """Returns the id according to the name."""
         cursor = connection.get_cursor()
         id_temp = int
 
         id_query = (
-            "SELECT id FROM CATEGORY WHERE cat_name = '%(name_category)s'"
+            "SELECT id FROM CATEGORY WHERE cat_name = '%s'" % name_category
         )
 
-        cursor.execute(id_query, name_category)
-
-        for id in cursor:
-            id_temp = id
-        cursor.close()
+        cursor.execute(id_query)
+        category_id = cursor.fetchone()[0]
 
         connection.db.commit()
         cursor.close()
-        return id_temp
+        return category_id
 
     @classmethod
     def save(cls, cleaned_product: list) -> bool:
         """Save categories in the database."""
         cursor = connection.get_cursor()
 
-        add_categories = (
-            "INSERT INTO CATEGORY (id, cat_name) VALUES (%(id)s, %(name)s)"
-        )
+        add_categories = "INSERT IGNORE INTO CATEGORY (id, cat_name) VALUES (%(id)s, %(name)s)"
 
         for product in cleaned_product:
             for cat_value in product.get("categories"):

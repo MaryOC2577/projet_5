@@ -15,11 +15,11 @@ class Product:
         cursor = connection.get_cursor()
 
         id_query = (
-            "SELECT id FROM PRODUCT WHERE product_name ='%s'" & name_product
+            "SELECT id FROM PRODUCT WHERE product_name ='%(name_product)s'"
         )
 
         cursor.execute(id_query, name_product)
-        product_id = cursor.fetchone()[0]
+        product_id = cursor.fetchone()
 
         connection.db.commit()
         cursor.close()

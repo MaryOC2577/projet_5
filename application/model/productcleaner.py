@@ -29,7 +29,9 @@ class ProductCleaner:
                 "name": product.get("product_name_fr"),
                 "stores": product.get("stores"),
                 "origin": product.get("manufacturing_places"),
-                "categories": (product.get("categories")).split(","),
+                "categories": (
+                    product.get("categories").replace("fr:", "")
+                ).split(","),
                 "nutriscore": (product.get("nutrition_grade_fr")).upper(),
             }
 

@@ -12,14 +12,12 @@ class Category:
     def get_idcategory(self, name_category):
         """Returns the id according to the name."""
         cursor = connection.get_cursor()
-        id_temp = int
 
-        id_query = (
-            "SELECT id FROM CATEGORY WHERE cat_name = '%s'" % name_category
-        )
+        id_query = "SELECT id FROM CATEGORY WHERE cat_name ='%(name_category)s'"
 
-        cursor.execute(id_query)
-        category_id = cursor.fetchone()[0]
+        cursor.execute(id_query, name_category)
+        breakpoint()
+        category_id = cursor.fetchone()
 
         connection.db.commit()
         cursor.close()

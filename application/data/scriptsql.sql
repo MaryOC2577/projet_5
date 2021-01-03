@@ -7,7 +7,7 @@ CREATE TABLE Nutriscore(
   );
 CREATE TABLE Product (
     id SMALLINT AUTO_INCREMENT,
-    product_name VARCHAR(200) NOT NULL,
+    product_name VARCHAR(200) NOT NULL UNIQUE,
     shop VARCHAR(200) NOT NULL,
     origin VARCHAR(200) NOT NULL,
     substitute SMALLINT,

@@ -13,11 +13,12 @@ class Category:
         """Returns the id according to the name."""
         cursor = connection.get_cursor()
 
-        id_query = "SELECT id FROM CATEGORY WHERE cat_name ='%(name_category)s'"
+        id_query = (
+            "SELECT id FROM CATEGORY WHERE cat_name ='%s'" % name_category
+        )
 
-        cursor.execute(id_query, name_category)
-        breakpoint()
-        category_id = cursor.fetchone()
+        cursor.execute(id_query)
+        category_id = cursor.fetchone()[0]
 
         connection.db.commit()
         cursor.close()

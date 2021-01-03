@@ -38,6 +38,7 @@ class CatProd:
                 "id_cat": catclass.get_idcategory(product.get("cat_name")),
                 "id_prod": productclass.get_idproduct(product.get("prod_name")),
             }
+
             cursor.execute(add_catprod, data_catprod)
 
         connection.db.commit()

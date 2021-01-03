@@ -15,11 +15,11 @@ class Product:
         cursor = connection.get_cursor()
 
         id_query = (
-            "SELECT id FROM PRODUCT WHERE product_name ='%(name_product)s'"
+            "SELECT id FROM PRODUCT WHERE product_name ='%s'" % name_product
         )
 
-        cursor.execute(id_query, name_product)
-        product_id = cursor.fetchone()
+        cursor.execute(id_query)
+        product_id = cursor.fetchone()[0]
 
         connection.db.commit()
         cursor.close()
@@ -32,7 +32,7 @@ class Product:
         nutri_score = Nutriscore()
 
         add_products = (
-            "INSERT INTO PRODUCT (id, product_name, shop, origin, substitute, nutri_id) "
+            "INSERT IGNORE INTO PRODUCT (id, product_name, shop, origin, substitute, nutri_id) "
             "VALUES (%(id)s, %(name)s, %(shop)s, %(origin)s, %(substitute)s, %(nutri_id)s)"
         )
 

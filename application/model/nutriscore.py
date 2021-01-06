@@ -25,7 +25,7 @@ class Nutriscore:
         return nutriscore_id
 
     @classmethod
-    def save(cls) -> bool:
+    def generate(cls) -> bool:
         """Save Nutriscore in database."""
         cursor = connection.get_cursor()
 

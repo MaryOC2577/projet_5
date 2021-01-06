@@ -32,8 +32,10 @@ class Product:
         nutri_score = Nutriscore()
 
         add_products = (
-            "INSERT IGNORE INTO PRODUCT (id, product_name, shop, origin, substitute, nutri_id) "
-            "VALUES (%(id)s, %(name)s, %(shop)s, %(origin)s, %(substitute)s, %(nutri_id)s)"
+            "INSERT IGNORE INTO PRODUCT "
+            "(id, product_name, shop, origin, substitute, nutri_id) "
+            "VALUES (%(id)s, %(name)s, %(shop)s, "
+            "%(origin)s, %(substitute)s, %(nutri_id)s)"
         )
 
         for product in cleaned_product:

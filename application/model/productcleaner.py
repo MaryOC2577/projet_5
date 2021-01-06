@@ -25,17 +25,18 @@ class ProductCleaner:
                 or not product.get("nutrition_grade_fr")
             ):
                 continue
-            clean_product = {
-                "name": product.get("product_name_fr"),
-                "stores": product.get("stores"),
-                "origin": product.get("manufacturing_places"),
-                "categories": (
-                    product.get("categories").replace("fr:", "")
-                ).split(","),
-                "nutriscore": (product.get("nutrition_grade_fr")).upper(),
-            }
+            else:
+                clean_product = {
+                    "name": product.get("product_name_fr"),
+                    "stores": product.get("stores"),
+                    "origin": product.get("manufacturing_places"),
+                    "categories": (
+                        product.get("categories").replace("fr:", "")
+                    ).split(","),
+                    "nutriscore": (product.get("nutrition_grade_fr")).upper(),
+                }
 
-            self.cleaned_products.append(clean_product)
+                self.cleaned_products.append(clean_product)
 
     def get_products_from_off(self):
         """Get the products from OFF and save them in the database."""
@@ -45,7 +46,7 @@ class ProductCleaner:
         current_products = Product()
         catprod = CatProd()
 
-        off_products.get_product_page(15)
+        off_products.get_product_page(5000)
         self.clean_product(off_products.products)
 
         for product in self.cleaned_products:
@@ -63,7 +64,7 @@ class ProductCleaner:
             print()
 
         if self.cleaned_products:
-            nutriscore.save()
+            nutriscore.generate()
             category.save(self.cleaned_products)
             current_products.save(self.cleaned_products)
             catprod.save(self.cleaned_products)

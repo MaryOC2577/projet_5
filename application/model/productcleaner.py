@@ -46,7 +46,7 @@ class ProductCleaner:
         current_products = Product()
         catprod = CatProd()
 
-        off_products.get_product_page(5000)
+        off_products.get_product_page(10000)
         self.clean_product(off_products.products)
 
         for product in self.cleaned_products:

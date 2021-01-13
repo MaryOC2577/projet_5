@@ -8,8 +8,8 @@ CREATE TABLE Nutriscore(
 CREATE TABLE Product (
     id SMALLINT AUTO_INCREMENT,
     product_name VARCHAR(200) NOT NULL UNIQUE,
+    product_description VARCHAR(200),
     shop VARCHAR(200) NOT NULL,
-    origin VARCHAR(200) NOT NULL,
     substitute SMALLINT,
     nutri_id SMALLINT,
     PRIMARY KEY(id),

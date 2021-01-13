@@ -21,7 +21,7 @@ class ProductCleaner:
             if (
                 not product.get("product_name_fr")
                 or not product.get("stores")
-                or not product.get("manufacturing_places")
+                or not product.get("url")
                 or not product.get("categories")
                 or not product.get("nutrition_grade_fr")
             ):
@@ -30,11 +30,12 @@ class ProductCleaner:
                 clean_product = {
                     "name": product.get("product_name_fr"),
                     "stores": product.get("stores"),
-                    "origin": product.get("manufacturing_places"),
+                    "url": product.get("url"),
                     "categories": (
                         product.get("categories").replace("fr:", "")
                     ).split(","),
                     "nutriscore": (product.get("nutrition_grade_fr")).upper(),
+                    "desciption": product.get("generic_name"),
                 }
 
                 self.cleaned_products.append(clean_product)

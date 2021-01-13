@@ -17,26 +17,25 @@ class ProductCleaner:
     def clean_product(self, products: list):
         """Clean a product."""
         for product in products:
-            breakpoint()
             if (
                 not product.get("product_name_fr")
+                or not product.get("generic_name")
                 or not product.get("stores")
-                or not product.get("url")
                 or not product.get("categories")
                 or not product.get("nutrition_grade_fr")
-                or not product.get("generic_name")
+                or not product.get("url")
             ):
                 continue
             else:
                 clean_product = {
                     "name": product.get("product_name_fr"),
+                    "desciption": product.get("generic_name"),
                     "stores": product.get("stores"),
-                    "url": product.get("url"),
                     "categories": (
                         product.get("categories").replace("fr:", "")
                     ).split(","),
                     "nutriscore": (product.get("nutrition_grade_fr")).upper(),
-                    "desciption": product.get("generic_name"),
+                    "url": product.get("url"),
                 }
 
                 self.cleaned_products.append(clean_product)
@@ -49,20 +48,22 @@ class ProductCleaner:
         current_products = Product()
         catprod = CatProd()
 
-        off_products.get_product_page(4000)
+        off_products.get_product_page(20)
         self.clean_product(off_products.products)
 
         for product in self.cleaned_products:
             print(
                 product.get("name"),
                 " / ",
-                product.get("stores"),
+                product.get("description"),
                 " / ",
-                product.get("origin"),
+                product.get("shop"),
                 " / ",
                 product.get("categories"),
                 " / ",
                 product.get("nutriscore"),
+                " / ",
+                product.get("url"),
             )
             print()
 

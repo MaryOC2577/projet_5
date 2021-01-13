@@ -46,9 +46,9 @@ class Product:
                 "shop": product.get("stores"),
                 "substitute": None,
                 "nutri_id": nutri_score.get_idnutriscore(
-                    product.get("nutriscore"),
-                "url": product.get("url")
+                    product.get("nutriscore")
                 ),
+                "url": product.get("url"),
             }
             cursor.execute(add_products, data_products)
 

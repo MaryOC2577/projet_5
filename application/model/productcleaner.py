@@ -24,6 +24,7 @@ class ProductCleaner:
                 or not product.get("url")
                 or not product.get("categories")
                 or not product.get("nutrition_grade_fr")
+                or not product.get("generic_name")
             ):
                 continue
             else:

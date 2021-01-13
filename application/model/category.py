@@ -10,7 +10,7 @@ class Category:
         """Initiate category class."""
 
     def get_idcategory(self, name_category):
-        """Returns the id according to the name."""
+        """Return the id according to the name."""
         cursor = connection.get_cursor()
 
         id_query = (
@@ -29,14 +29,17 @@ class Category:
         """Save categories in the database."""
         cursor = connection.get_cursor()
 
-        add_categories = "INSERT IGNORE INTO CATEGORY (id, cat_name) VALUES (%(id)s, %(name)s)"
+        add_categories = (
+            "INSERT IGNORE INTO CATEGORY "
+            "(id, cat_name) VALUES (%(id)s, %(name)s)"
+        )
 
         for product in cleaned_product:
+            # categories = product.get("categories").split(",")
+            # for categories_name in categories:
+            #    data_categories = {"id": None, "name": categories_name}
             for cat_value in product.get("categories"):
-                data_categories = {
-                    "id": None,
-                    "name": cat_value.replace("fr:", ""),
-                }
+                data_categories = {"id": None, "name": cat_value}
                 cursor.execute(add_categories, data_categories)
 
         connection.db.commit()

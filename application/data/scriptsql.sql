@@ -12,6 +12,7 @@ CREATE TABLE Product (
     shop VARCHAR(200) NOT NULL,
     substitute SMALLINT,
     nutri_id SMALLINT,
+    product_url VARCHAR(200),
     PRIMARY KEY(id),
     FOREIGN KEY (substitute) REFERENCES Product(id),
     FOREIGN KEY (nutri_id) REFERENCES Nutriscore(id)

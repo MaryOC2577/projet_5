@@ -17,6 +17,7 @@ class ProductCleaner:
     def clean_product(self, products: list):
         """Clean a product."""
         for product in products:
+            breakpoint()
             if (
                 not product.get("product_name_fr")
                 or not product.get("stores")

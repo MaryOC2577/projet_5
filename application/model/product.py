@@ -33,20 +33,21 @@ class Product:
 
         add_products = (
             "INSERT IGNORE INTO PRODUCT "
-            "(id, product_name, shop, origin, substitute, nutri_id) "
-            "VALUES (%(id)s, %(name)s, %(shop)s, "
-            "%(origin)s, %(substitute)s, %(nutri_id)s)"
+            "(id, product_name, product_description, shop, substitute, nutri_id, product_url) "
+            "VALUES (%(id)s, %(name)s, %(description)s, %(shop)s, "
+            "%(substitute)s, %(nutri_id)s, %(url)s)"
         )
 
         for product in cleaned_product:
             data_products = {
                 "id": None,
                 "name": product.get("name"),
+                "description": product.get("generic_name"),
                 "shop": product.get("stores"),
-                "origin": product.get("origin"),
                 "substitute": None,
                 "nutri_id": nutri_score.get_idnutriscore(
-                    product.get("nutriscore")
+                    product.get("nutriscore"),
+                "url": product.get("url")
                 ),
             }
             cursor.execute(add_products, data_products)

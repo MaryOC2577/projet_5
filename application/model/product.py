@@ -17,9 +17,9 @@ class Product:
         id_query = (
             "SELECT id FROM PRODUCT WHERE product_name ='%s'" % name_product
         )
-
         cursor.execute(id_query)
         product_id = cursor.fetchone()[0]
+        breakpoint()
 
         connection.db.commit()
         cursor.close()

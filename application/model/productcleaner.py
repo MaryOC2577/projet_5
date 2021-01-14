@@ -5,6 +5,7 @@ from application.model.product import Product
 from application.model.category import Category
 from application.model.nutriscore import Nutriscore
 from application.model.catprod import CatProd
+from application.model.connection import Connection
 
 
 class ProductCleaner:
@@ -37,19 +38,19 @@ class ProductCleaner:
                     "nutriscore": (product.get("nutrition_grade_fr")).upper(),
                     "url": product.get("url"),
                 }
-
                 self.cleaned_products.append(clean_product)
 
     def get_products_from_off(self):
         """Get the products from OFF and save them in the database."""
-        off_products = OpenFoodFacts()
+        # off_products = OpenFoodFacts()
+        connection = Connection()
         nutriscore = Nutriscore()
         category = Category()
         current_products = Product()
         catprod = CatProd()
 
-        off_products.get_product_page(20)
-        self.clean_product(off_products.products)
+        connection.get_product_page(20)
+        self.clean_product(connection.products)
 
         for product in self.cleaned_products:
             print(

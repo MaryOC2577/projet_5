@@ -17,7 +17,7 @@ class CatProd:
         cursor = connection.get_cursor()
 
         temp_prod = []
-        productclass = Product()
+        product_class = Product()
         catclass = Category()
 
         add_catprod = (
@@ -36,9 +36,10 @@ class CatProd:
         for product in temp_prod:
             data_catprod = {
                 "id_cat": catclass.get_idcategory(product.get("cat_name")),
-                "id_prod": productclass.get_idproduct(product.get("prod_name")),
+                "id_prod": product_class.get_idproduct(
+                    product.get("prod_name"),
+                ),
             }
-
             cursor.execute(add_catprod, data_catprod)
 
         connection.db.commit()

@@ -1,7 +1,6 @@
 """Class connection."""
 
 import mysql.connector
-import json
 import requests
 
 

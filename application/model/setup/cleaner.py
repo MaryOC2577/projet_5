@@ -1,11 +1,10 @@
 """Procut cleaner."""
 
-from application.model.getdata import OpenFoodFacts
+from application.model.connection import Connection
 from application.model.product import Product
 from application.model.category import Category
 from application.model.nutriscore import Nutriscore
 from application.model.catprod import CatProd
-from application.model.connection import Connection
 
 
 class ProductCleaner:
@@ -27,18 +26,18 @@ class ProductCleaner:
                 or not product.get("url")
             ):
                 continue
-            else:
-                clean_product = {
-                    "name": product.get("product_name_fr"),
-                    "desciption": product.get("generic_name"),
-                    "stores": product.get("stores"),
-                    "categories": (
-                        product.get("categories").replace("fr:", "")
-                    ).split(","),
-                    "nutriscore": (product.get("nutrition_grade_fr")).upper(),
-                    "url": product.get("url"),
-                }
-                self.cleaned_products.append(clean_product)
+
+            clean_product = {
+                "name": product.get("product_name_fr"),
+                "description": product.get("generic_name"),
+                "stores": product.get("stores"),
+                "categories": (
+                    product.get("categories").replace("fr:", "")
+                ).split(","),
+                "nutriscore": (product.get("nutrition_grade_fr")).upper(),
+                "url": product.get("url"),
+            }
+            self.cleaned_products.append(clean_product)
 
     def get_products_from_off(self):
         """Get the products from OFF and save them in the database."""
@@ -46,7 +45,6 @@ class ProductCleaner:
         connection = Connection()
         nutriscore = Nutriscore()
         category = Category()
-        current_products = Product()
         catprod = CatProd()
 
         connection.get_product_page(20)
@@ -70,8 +68,10 @@ class ProductCleaner:
 
         if self.cleaned_products:
             nutriscore.generate()
-            category.save(self.cleaned_products)
-            current_products.save(self.cleaned_products)
-            catprod.save(self.cleaned_products)
+            for product in self.cleaned_products:
+                product_id = Product.save(product)
+                category_ids = category.save(product["categories"])
+                breakpoint()
+                catprod.save(product_id, category_ids)
         else:
             print("There is a non complying product.")

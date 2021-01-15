@@ -36,7 +36,7 @@ class CatProd:
         for product in temp_prod:
             data_catprod = {
                 "id_cat": catclass.get_idcategory(product.get("cat_name")),
-                "id_prod": product_class.get_idproduct(
+                "id_prod": product_class.get_id(
                     product.get("prod_name"),
                 ),
             }

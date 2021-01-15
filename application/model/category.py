@@ -25,23 +25,25 @@ class Category:
         return category_id
 
     @classmethod
-    def save(cls, cleaned_product: list) -> bool:
+    def save(cls, categories: list) -> list:
         """Save categories in the database."""
         cursor = connection.get_cursor()
 
-        add_categories = (
-            "INSERT IGNORE INTO CATEGORY "
-            "(id, cat_name) VALUES (%(id)s, %(name)s)"
-        )
+        sql = "INSERT IGNORE INTO CATEGORY " "(cat_name) VALUES (%(name)s)"
 
-        for product in cleaned_product:
-            # categories = product.get("categories").split(",")
-            # for categories_name in categories:
-            #    data_categories = {"id": None, "name": categories_name}
-            for cat_value in product.get("categories"):
-                data_categories = {"id": None, "name": cat_value}
-                cursor.execute(add_categories, data_categories)
+        for name in categories:
+            data_categories = {"name": name}
+            cursor.execute(sql, data_categories)
 
         connection.db.commit()
+        category_ids = []
+
+        for name in categories:
+            cursor.execute(
+                "SELECT id, cat_name FROM category WHERE cat_name = %s", (name,)
+            )
+            id = cursor.fetchone()[0]
+            category_ids.append(id)
+
         cursor.close()
-        return True
+        return category_ids

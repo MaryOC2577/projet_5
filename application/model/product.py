@@ -42,7 +42,7 @@ class Product:
             "description": product.get("generic_name"),
             "shop": product.get("stores"),
             "substitute": None,
-            "nutri_id": nutri_score.get_idnutriscore(product.get("nutriscore")),
+            "nutri_id": nutri_score.get_id(product.get("nutriscore")),
             "url": product.get("url"),
         }
         cursor.execute(sql, data_products)

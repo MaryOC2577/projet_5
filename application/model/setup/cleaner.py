@@ -41,7 +41,6 @@ class ProductCleaner:
 
     def get_products_from_off(self):
         """Get the products from OFF and save them in the database."""
-        # off_products = OpenFoodFacts()
         connection = Connection()
         nutriscore = Nutriscore()
         category = Category()
@@ -71,7 +70,6 @@ class ProductCleaner:
             for product in self.cleaned_products:
                 product_id = Product.save(product)
                 category_ids = category.save(product["categories"])
-                breakpoint()
                 catprod.save(product_id, category_ids)
         else:
             print("There is a non complying product.")

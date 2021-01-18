@@ -12,35 +12,21 @@ class CatProd:
         """"Initialize catprod class."""
 
     @classmethod
-    def save(cls, cleaned_product: list) -> bool:
+    def save(cls, id_prod, ids_cat: list) -> bool:
         """Save Catprod in the database."""
         cursor = connection.get_cursor()
 
-        temp_prod = []
-        product_class = Product()
-        catclass = Category()
-
-        add_catprod = (
+        sql = (
             "INSERT INTO CATPROD (id_cat, id_prod) "
             "VALUES (%(id_cat)s, %(id_prod)s)"
         )
 
-        for product in cleaned_product:
-            for category in product.get("categories"):
-                select_product = {
-                    "prod_name": product.get("name"),
-                    "cat_name": category,
-                }
-            temp_prod.append(select_product)
-
-        for product in temp_prod:
+        for id in ids_cat:
             data_catprod = {
-                "id_cat": catclass.get_idcategory(product.get("cat_name")),
-                "id_prod": product_class.get_id(
-                    product.get("prod_name"),
-                ),
+                "id_cat": id,
+                "id_prod": id_prod,
             }
-            cursor.execute(add_catprod, data_catprod)
+            cursor.execute(sql, data_catprod)
 
         connection.db.commit()
         cursor.close()

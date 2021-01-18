@@ -9,7 +9,7 @@ class Nutriscore:
     def __init__(self):
         """Initiate Nutriscore."""
 
-    def get_idnutriscore(self, nutri_value):
+    def get_id(self, nutri_value):
         """Returns the id according to the name."""
         cursor = connection.get_cursor()
 

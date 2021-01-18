@@ -9,7 +9,7 @@ class Category:
     def __init__(self):
         """Initiate category class."""
 
-    def get_idcategory(self, name_category):
+    def get_id(self, name_category):
         """Return the id according to the name."""
         cursor = connection.get_cursor()
 

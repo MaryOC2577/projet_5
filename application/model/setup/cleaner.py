@@ -18,7 +18,8 @@ class ProductCleaner:
         """Clean a product."""
         for product in products:
             if (
-                not product.get("product_name_fr")
+                not product.get("generic_name")
+                or not product.get("product_name_fr")
                 or not product.get("generic_name")
                 or not product.get("stores")
                 or not product.get("categories")
@@ -46,7 +47,7 @@ class ProductCleaner:
         category = Category()
         catprod = CatProd()
 
-        connection.get_product_page(20)
+        connection.get_product_page(1000)
         self.clean_product(connection.products)
 
         for product in self.cleaned_products:

@@ -25,7 +25,7 @@ class Product:
         return product_id
 
     @classmethod
-    def save(cls, product) -> int:
+    def save(cls, product: dict) -> int:
         """Save products in the database."""
         cursor = connection.get_cursor()
         nutri_score = Nutriscore()
@@ -39,7 +39,7 @@ class Product:
 
         data_products = {
             "name": product.get("name"),
-            "description": product.get("generic_name"),
+            "description": product.get("description"),
             "shop": product.get("stores"),
             "substitute": None,
             "nutri_id": nutri_score.get_id(product.get("nutriscore")),

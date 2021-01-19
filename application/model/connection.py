@@ -15,7 +15,7 @@ class Connection:
             password="Ma25Bo77Yi181",
             database="product",
         )
-        self.products = {}
+        self.products = []
 
     def get_cursor(self):
         """Connect to database."""

@@ -5,21 +5,21 @@ from application.model.product import Product
 from application.model.connection import Connection
 
 
-class substitute:
+class Substitute:
     """Display a substitute."""
 
     def __init__(self):
         """Initialize a substitute."""
         self.substitute = {}
 
-    def get_substitute(self, category_name, product_name):
+    def get(self, category_name, product_name):
         """Display a subtitute from the user's product choice."""
 
         category = Category()
         product = Product()
         connection = Connection()
-        id_category = category.get_idcategory(category_name)
-        id_product = product.get_idproduct(product_name)
+        id_category = category.get_id(category_name)
+        id_product = product.get_id(product_name)
 
         cursor = connection.get_cursor()
 

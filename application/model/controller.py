@@ -1,0 +1,44 @@
+"""Controller."""
+
+from application.view.mainmenu import Menu
+from application.model.category import Category
+from application.model.substitute import Substitute
+
+
+class Controller:
+    """Controls inputs from users."""
+
+    def __init__(self):
+        """Initialize the controller."""
+
+    def substitute(self):
+        """Return a product as a substitute."""
+        menu = Menu()
+        categories = Category()
+        substitute = Substitute()
+
+        choice_one = input(menu.home())
+        switch(choice_one) {
+            case 1: 
+                menu.category()
+                for cat in categories.get_categories():
+                    print(cat.get("id"), " - ", cat.get("cat_name") + "/n")
+                choice_cat = input()
+                menu.product()
+                # afficher les produits de la cat sélectionnée
+                choice_prod = input()
+                menu.substitute()
+                print(substitute.get(choice_cat, choice_product))
+
+            case 2: 
+                menu.substitute();
+        }
+        
+        # Requête SQL qui sélectionne toutes les catégories disponibles
+        # L'utilisateur choisi une catégorie avec le numéro associé
+        # Afficher les prduits de la catégorie sélectionnée
+        # L'utilsateur choisi un produit avec le numéro associé
+        # Requête SQL qui sélectionne un produit (substitut) dans la même catégorie avec le meilleur nutriscore 
+        # Afficher le substitut
+        # Demander à l'utilisateur s'il veut sauvegarder le substitut
+        # Modifier produit d'origine avec id substitut dans champ subtitut de la table

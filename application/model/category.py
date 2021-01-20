@@ -24,6 +24,18 @@ class Category:
         cursor.close()
         return category_id
 
+    def get_categories(self):list
+        """Return id and name of all categories."""
+        cursor = connection.get_cursor()
+
+        sql = "SELECT id, cat_name FROM CATEGORY"
+
+        cursor.execute(sql)
+        cat_list = cursor.fetchone()
+        connection.db.commit()
+        cursor.close()
+        return cat_list
+
     @classmethod
     def save(cls, categories: list) -> list:
         """Save categories in the database."""

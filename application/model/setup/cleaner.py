@@ -50,22 +50,6 @@ class ProductCleaner:
         connection.get_product_page(1000)
         self.clean_product(connection.products)
 
-        for product in self.cleaned_products:
-            print(
-                product.get("name"),
-                " / ",
-                product.get("description"),
-                " / ",
-                product.get("shop"),
-                " / ",
-                product.get("categories"),
-                " / ",
-                product.get("nutriscore"),
-                " / ",
-                product.get("url"),
-            )
-            print()
-
         if self.cleaned_products:
             nutriscore.generate()
             for product in self.cleaned_products:

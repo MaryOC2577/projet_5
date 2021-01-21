@@ -14,7 +14,6 @@ class Substitute:
 
     def get(self, category_name, product_name):
         """Display a subtitute from the user's product choice."""
-
         category = Category()
         product = Product()
         connection = Connection()

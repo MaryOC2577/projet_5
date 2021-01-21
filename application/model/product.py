@@ -9,20 +9,37 @@ class Product:
 
     def __init__(self):
         """Initiate product class."""
+        self.product_cat = []
 
     def get_id(self, name_product):
         """Returns the id according to the name."""
         cursor = connection.get_cursor()
 
-        id_query = (
-            "SELECT id FROM PRODUCT WHERE product_name ='%s'" % name_product
-        )
-        cursor.execute(id_query)
+        sql = "SELECT id FROM PRODUCT WHERE product_name ='%s'" % name_product
+        cursor.execute(sql)
         product_id = cursor.fetchone()[0]
 
         connection.db.commit()
         cursor.close()
         return product_id
+
+    def get_fromcategory(self, id_cat):
+        """Return all products of one category."""
+        cursor = connection.get_cursor()
+
+        sql = (
+            "SELECT id, product_name FROM PRODUCT "
+            "INNER JOIN CATPROD "
+            "ON product.id = catprod.id_product"
+            "WHERE catprod.id_cat='%s' " & id_cat
+        )
+
+        cursor.execute(sql)
+        self.product_cat = cursor.fetchone()
+
+        connection.db.commit()
+        cursor.close()
+        return self.product_cat
 
     @classmethod
     def save(cls, product: dict) -> int:

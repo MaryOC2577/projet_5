@@ -13,18 +13,16 @@ class Category:
         """Return the id according to the name."""
         cursor = connection.get_cursor()
 
-        id_query = (
-            "SELECT id FROM CATEGORY WHERE cat_name ='%s'" % name_category
-        )
+        sql = "SELECT id FROM CATEGORY WHERE cat_name ='%s'" % name_category
 
-        cursor.execute(id_query)
+        cursor.execute(sql)
         category_id = cursor.fetchone()[0]
 
         connection.db.commit()
         cursor.close()
         return category_id
 
-    def get_categories(self):list
+    def get_all(self):
         """Return id and name of all categories."""
         cursor = connection.get_cursor()
 
@@ -41,7 +39,7 @@ class Category:
         """Save categories in the database."""
         cursor = connection.get_cursor()
 
-        sql = "INSERT IGNORE INTO CATEGORY " "(cat_name) VALUES (%(name)s)"
+        sql = "INSERT IGNORE INTO CATEGORY (cat_name) VALUES (%(name)s)"
 
         for name in categories:
             data_categories = {"name": name}

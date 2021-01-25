@@ -8,4 +8,4 @@ productsCleaned = ProductCleaner()
 controller = Controller()
 
 productsCleaned.get_products_from_off()
-controller.substitute()
+# controller.substitute()

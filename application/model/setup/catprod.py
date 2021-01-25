@@ -1,8 +1,6 @@
 """Class Catprod."""
 
 from application.model.connection import connection
-from application.model.product import Product
-from application.model.category import Category
 
 
 class CatProd:

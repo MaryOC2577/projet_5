@@ -14,11 +14,9 @@ class Substitute:
 
     def get(self, category_name, product_name):
         """Display a subtitute from the user's product choice."""
-        category = Category()
-        product = Product()
         connection = Connection()
-        id_category = category.get_id(category_name)
-        id_product = product.get_id(product_name)
+        id_category = Category.get_id(category_name)
+        id_product = Product.get_id(product_name)
 
         cursor = connection.get_cursor()
 

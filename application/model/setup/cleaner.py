@@ -4,7 +4,7 @@ from application.model.connection import Connection
 from application.model.product import Product
 from application.model.category import Category
 from application.model.nutriscore import Nutriscore
-from application.model.catprod import CatProd
+from application.model.setup.catprod import CatProd
 
 
 class ProductCleaner:

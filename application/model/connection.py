@@ -38,7 +38,7 @@ class Connection:
         )
 
         result = res.json()
-        self.products = result["products"]
+        self.products.extend(result["products"])
 
 
 connection = Connection()

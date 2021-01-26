@@ -31,6 +31,7 @@ class Connection:
             "search_terms": "",
             "sort_by": "unique_scans_n",
             "page_size": number_per_page,
+            "content-length": 3000,
             "json": 1,
         }
         res = requests.get(

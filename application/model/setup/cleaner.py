@@ -33,7 +33,7 @@ class ProductCleaner:
                 "description": product.get("generic_name"),
                 "stores": product.get("stores"),
                 "categories": (
-                    product.get("categories").replace("fr:", "")
+                    product.get("categories_lc").replace("fr:", "")
                 ).split(","),
                 "nutriscore": (product.get("nutrition_grade_fr")).upper(),
                 "url": product.get("url"),

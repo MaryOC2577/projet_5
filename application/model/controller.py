@@ -12,7 +12,7 @@ class Controller:
     def __init__(self):
         """Initialize the controller."""
 
-    def substitute(self):
+    def show_substitute(self):
         """Return a product as a substitute."""
         menu = Menu()
         categories = Category()
@@ -22,19 +22,19 @@ class Controller:
         choice_one = input(menu.home())
         breakpoint()
         if choice_one == 1:
-            menu.category()
+            menu.show_category()
             for cat in categories.get_all():
                 print(cat.get("id") + " - " + cat.get("cat_name") + "\n")
             choice_cat = input()
-            menu.product()
+            menu.show_product()
             for prod in product.get_fromcategory(choice_cat):
                 print(prod.get("id") + " - " + prod.get("product_name" + "\n"))
             choice_prod = input()
-            menu.substitute()
+            menu.show_substitute()
             print(substitute.get(choice_cat, choice_prod))
         else:
             if choice_one == 2:
-                menu.substitute()
+                menu.show_substitute()
 
         # Requête SQL qui sélectionne toutes les catégories disponibles
         # L'utilisateur choisi une catégorie avec le numéro associé

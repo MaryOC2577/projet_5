@@ -14,14 +14,14 @@ class Menu:
             "2 - Retrouver mes alimments substitués."
         )
 
-    def category(self):
+    def show_category(self):
         """Display the categories menu."""
         print("Sélectionnez une catégorie : ")
 
-    def product(self):
+    def show_product(self):
         """Display the product menu."""
         print("Sélectionnez un produit : ")
 
-    def substitute(self):
+    def show_substitute(self):
         """Display substitutes."""
         print("Liste des substituts disponibles : ")

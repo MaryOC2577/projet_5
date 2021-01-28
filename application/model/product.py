@@ -12,7 +12,7 @@ class Product:
         self.product_cat = []
 
     def get_id(self, name_product):
-        """Returns the id according to the name."""
+        """Return the id according to the name."""
         cursor = connection.get_cursor()
 
         sql = "SELECT id FROM PRODUCT WHERE product_name ='%s'" % name_product
@@ -49,7 +49,8 @@ class Product:
 
         sql = (
             "INSERT IGNORE INTO PRODUCT "
-            "(product_name, product_description, shop, substitute, nutri_id, product_url) "
+            "(product_name, product_description, shop, "
+            "substitute, nutri_id, product_url) "
             "VALUES (%(name)s, %(description)s, %(shop)s, "
             "%(substitute)s, %(nutri_id)s, %(url)s)"
         )

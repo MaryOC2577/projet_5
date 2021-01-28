@@ -5,6 +5,8 @@ from application.model.category import Category
 from application.model.substitute import Substitute
 from application.model.product import Product
 
+from application.view.main import MainMenu
+
 
 class Controller:
     """Controls inputs from users."""
@@ -14,13 +16,11 @@ class Controller:
 
     def show_substitute(self):
         """Return a product as a substitute."""
-        menu = Menu()
         categories = Category()
         substitute = Substitute()
         product = Product()
 
-        choice_one = input(menu.home())
-        breakpoint()
+        choice_one = input(MainMenu.display())
         if choice_one == 1:
             menu.show_category()
             for cat in categories.get_all():

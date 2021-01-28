@@ -27,13 +27,14 @@ class ProductCleaner:
                 or not product.get("url")
             ):
                 continue
-
+            if not product.get("categories_lc") == "fr":
+                continue
             clean_product = {
                 "name": product.get("product_name_fr"),
                 "description": product.get("generic_name"),
                 "stores": product.get("stores"),
                 "categories": (
-                    product.get("categories_lc").replace("fr:", "")
+                    product.get("categories").replace("fr:", "")
                 ).split(","),
                 "nutriscore": (product.get("nutrition_grade_fr")).upper(),
                 "url": product.get("url"),

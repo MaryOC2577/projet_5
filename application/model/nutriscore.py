@@ -10,7 +10,7 @@ class Nutriscore:
         """Initiate Nutriscore."""
 
     def get_id(self, nutri_value):
-        """Returns the id according to the name."""
+        """Return the id according to the name."""
         cursor = connection.get_cursor()
 
         id_query = (

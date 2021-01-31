@@ -10,7 +10,7 @@ class MainMenu:
         """Initialize the main menu controller."""
         self.main_menu = MainMenu()
 
-    def main_menu(self):
-        """Handle the first controller."""
+    def mainmenu(self):
+        """Handle the main menu controller."""
         choice = input(self.main_menu.show())
         return choice

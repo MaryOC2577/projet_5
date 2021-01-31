@@ -12,7 +12,7 @@ class Product:
         self.product_cat = []
         self.product_in_category = []
 
-    def getin_onecategoriy(self, category):
+    def getin_onecategory(self, category):
         """Get a list of proucts in one category."""
         cursor = connection.get_cursor()
 

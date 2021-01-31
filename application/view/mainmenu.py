@@ -7,7 +7,6 @@ class MainMenu:
     def __init__(self):
         """Initialize the main menu."""
 
-    @classmethod
     def show(self):
         """Show the main menu."""
         print(

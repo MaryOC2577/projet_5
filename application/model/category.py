@@ -13,8 +13,7 @@ class Category:
         """Return the id according to the name."""
         cursor = connection.get_cursor()
 
-        sql = "SELECT id FROM CATEGORY WHERE cat_name ='%s'" % name_category
-
+        sql = f"SELECT id FROM CATEGORY WHERE cat_name ='{name_category}'"
         cursor.execute(sql)
         category_id = cursor.fetchone()[0]
 

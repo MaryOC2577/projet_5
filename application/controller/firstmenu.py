@@ -9,7 +9,8 @@ class FirstController:
     def __init__(self):
         """Initialize the controller."""
 
-    @classmethod
-    def first_controller(cls):
+    def first_controller(self):
         """Handle the first controller."""
         choice = input(MainMenu.display())
+        if choice == 1:
+            pass

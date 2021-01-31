@@ -1,0 +1,1 @@
+"""Product selection menu."""

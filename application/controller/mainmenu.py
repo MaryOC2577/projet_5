@@ -3,14 +3,14 @@
 from application.view.mainmenu import MainMenu
 
 
-class MainMenu:
+class MainController:
     """Controller of the main menu."""
 
     def __init__(self):
         """Initialize the main menu controller."""
-        self.main_menu = MainMenu()
 
-    def mainmenu(self):
+    def show(self):
         """Handle the main menu controller."""
-        choice = input(self.main_menu.show())
+        main_menu = MainMenu()
+        choice = input(main_menu.show())
         return choice

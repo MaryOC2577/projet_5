@@ -15,7 +15,7 @@ class ApplicationControler:
         """Show the application controller."""
         main_controller = MainController()
         category_menu = CatMenuController()
-        product_menu = ProductMenuController
+        product_menu = ProductMenuController()
 
         main_controller.show()
         main_choice = int(input())

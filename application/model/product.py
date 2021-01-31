@@ -10,6 +10,23 @@ class Product:
     def __init__(self):
         """Initiate product class."""
         self.product_cat = []
+        self.product_in_category = []
+
+    def getin_onecategoriy(self, category):
+        """Get a list of proucts in one category."""
+        cursor = connection.get_cursor()
+
+        sql = (
+            "select product_name, product_description from product"
+            "inner join catprod ON product.id = catprod.id_prod"
+            "inner join category ON category.id = catprod.id_cat"
+            f"where category.cat_name like '%{category}%';"
+        )
+        cursor.execute(sql)
+        self.product_in_category = cursor.fetchone()
+        connection.db.commit()
+        cursor.close()
+        return self.product_in_category
 
     def get_id(self, name_product):
         """Return the id according to the name."""

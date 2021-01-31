@@ -9,4 +9,4 @@ class CategoryMenu:
 
     def show(self):
         """Display the categories menu."""
-        print("Sélectionnez une catégorie : ")
+        print("Sélectionnez une catégorie : " "Pain...")

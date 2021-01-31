@@ -9,7 +9,7 @@ class CatMenuController:
     def __init__(self):
         """Initialize the controller of the category menu."""
 
-    def category_menu(self):
+    def show(self):
         """Handle the category menu."""
         category_menu = CategoryMenu()
         category_menu.show()

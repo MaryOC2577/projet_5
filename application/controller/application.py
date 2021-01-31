@@ -17,5 +17,8 @@ class ApplicationControler:
         category_menu = CatMenuController()
 
         choice = main_controller.show()
+
         if choice == 1:
+            print("Test condition.")
             category_menu.show()
+            input()

@@ -12,5 +12,4 @@ class MainController:
     def show(self):
         """Handle the main menu controller."""
         main_menu = MainMenu()
-        choice = input(main_menu.show())
-        return choice
+        main_menu.show()

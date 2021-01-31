@@ -12,13 +12,18 @@ class ApplicationControler:
 
     def show(self):
         """Show the application controller."""
-
         main_controller = MainController()
         category_menu = CatMenuController()
 
-        choice = main_controller.show()
+        main_controller.show()
+        choice = int(input())
 
         if choice == 1:
-            print("Test condition.")
             category_menu.show()
-            input()
+        if choice == 2:
+            print("2 - indisponible.")
+
+        # afficher le menu principal
+        # l'utilisateur fait un choix 1 ou 2
+        # le controller menu principal retourne le choix de l'utilisateur
+        # pour le choix 1 afficher les catégories (controller category)

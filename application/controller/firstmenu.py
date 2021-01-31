@@ -1,16 +1,15 @@
-"""Controller of the first menu."""
+"""Controller of the main menu."""
 
-from application.view.main import MainMenu
+from application.view.mainmenu import MainMenu
 
 
-class FirstController:
-    """Controller of the first menu."""
+class MainMenu:
+    """Controller of the main menu."""
 
     def __init__(self):
-        """Initialize the controller."""
+        """Initialize the main menu controller."""
 
-    def first_controller(self):
+    def main_menu(self):
         """Handle the first controller."""
-        choice = input(MainMenu.display())
-        if choice == 1:
-            pass
+        choice = input()
+        return choice

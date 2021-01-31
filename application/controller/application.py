@@ -1,7 +1,7 @@
 """Application controller."""
 
 from application.controller.mainmenu import MainController
-from application.view.category import CategoryMenu
+from application.controller.categorymenu import CatMenuController
 
 
 class ApplicationControler:
@@ -14,7 +14,7 @@ class ApplicationControler:
         """Show the application controller."""
 
         main_controller = MainController()
-        category_menu = CategoryMenu()
+        category_menu = CatMenuController()
 
         choice = main_controller.show()
         if choice == 1:

@@ -2,6 +2,7 @@
 
 from application.controller.mainmenu import MainController
 from application.controller.categorymenu import CatMenuController
+from application.controller.productmenu import ProductMenuController
 
 
 class ApplicationControler:
@@ -14,14 +15,20 @@ class ApplicationControler:
         """Show the application controller."""
         main_controller = MainController()
         category_menu = CatMenuController()
+        product_menu = ProductMenuController
 
         main_controller.show()
-        choice = int(input())
+        main_choice = int(input())
 
-        if choice == 1:
+        if main_choice == 1:
             category_menu.show()
-        if choice == 2:
+        if main_choice == 2:
             print("2 - indisponible.")
+
+        cat_choice = int(input())
+
+        if cat_choice == 1:
+            product_menu.show()
 
         # afficher le menu principal
         # l'utilisateur fait un choix 1 ou 2

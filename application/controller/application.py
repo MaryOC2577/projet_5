@@ -3,6 +3,7 @@
 from application.controller.mainmenu import MainController
 from application.controller.categorymenu import CatMenuController
 from application.controller.productmenu import ProductMenuController
+from application.model.product import Product
 
 
 class ApplicationControler:
@@ -16,6 +17,7 @@ class ApplicationControler:
         main_controller = MainController()
         category_menu = CatMenuController()
         product_menu = ProductMenuController()
+        product_list = Product()
 
         main_controller.show()
         main_choice = int(input())
@@ -29,7 +31,7 @@ class ApplicationControler:
 
         if cat_choice == 1:
             product_menu.show()
-
+            print(product_list.getin_onecategory("biscuits"))
         # afficher le menu principal
         # l'utilisateur fait un choix 1 ou 2
         # le controller menu principal retourne le choix de l'utilisateur

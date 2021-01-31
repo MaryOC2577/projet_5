@@ -8,8 +8,8 @@ class ApplicationControler:
 
     def __init__(self):
         """Initialize application controller."""
-        self.mainmenu = MainMenu()
 
     def show(self):
         """Show the application controller."""
-        self.mainmenu.show()
+        main_menu = MainMenu()
+        main_menu.show()

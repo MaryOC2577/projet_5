@@ -26,4 +26,7 @@ class ApplicationControler:
         # afficher le menu principal
         # l'utilisateur fait un choix 1 ou 2
         # le controller menu principal retourne le choix de l'utilisateur
-        # pour le choix 1 afficher les catégories (controller category)
+        # pour le choix 1 afficher menu catégories (controller category)
+        # l'utilisateur choisi une catégorie
+        # SQL sélectionne produits dans catégorie choisie
+        # afficher menu prduits (résultats requête SQL)

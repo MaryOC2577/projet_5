@@ -19,7 +19,7 @@ class Connection:
 
     def get_cursor(self):
         """Connect to database."""
-        return self.db.cursor()
+        return self.db.cursor(buffered=True)
 
     def close(self):
         """Close the connection."""

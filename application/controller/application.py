@@ -31,7 +31,8 @@ class ApplicationControler:
 
         if cat_choice == 1:
             product_menu.show()
-            print(product_list.getin_onecategory("biscuits"))
+            print(product_list.getin_onecategory("biscuit"))
+
         # afficher le menu principal
         # l'utilisateur fait un choix 1 ou 2
         # le controller menu principal retourne le choix de l'utilisateur

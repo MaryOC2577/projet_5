@@ -17,9 +17,9 @@ class Product:
         cursor = connection.get_cursor()
 
         sql = (
-            "SELECT product_name, product_description from product"
-            "INNER JOIN catprod ON product.id = catprod.id_prod"
-            "INNER JOIN category ON category.id = catprod.id_cat"
+            "SELECT product_name, product_description from product "
+            "INNER JOIN catprod ON product.id = catprod.id_prod "
+            "INNER JOIN category ON category.id = catprod.id_cat "
             f"where category.cat_name LIKE '%{category}%';"
         )
         cursor.execute(sql)

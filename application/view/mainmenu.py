@@ -11,5 +11,6 @@ class MainMenu:
         """Show the main menu."""
         print(
             "1 - Quel aliment souhaitez-vous remplacer ?\n"
-            "2 - Retrouvez mes aliments substitués"
+            "2 - Retrouvez mes aliments substitués\n"
+            "3 - Quitter"
         )

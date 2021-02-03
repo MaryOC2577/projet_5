@@ -12,7 +12,7 @@ class CategoryMenu:
             "3": "Bonbons",
             "4": "Céréales",
             "5": "Charcuterie",
-            "6": "Chcolats",
+            "6": "Chocolats",
             "7": "Condiments",
             "8": "Desserts",
             "9": "Epices",

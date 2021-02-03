@@ -15,6 +15,5 @@ class MainMenu:
     def show(self):
         """Show the main menu."""
         print("Bienvenue sur la page d'acceuil, faites votre choix :\n")
-        breakpoint()
         for key, value in self.main_choice.items():
             print(key, " - ", value, "\n")

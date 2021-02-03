@@ -23,7 +23,10 @@ class Product:
             f"where category.cat_name LIKE '%{category}%';"
         )
         cursor.execute(sql)
-        self.product_in_category = cursor.fetchone()
+        products = cursor.fetchall()
+        self.product_in_category = []
+        for product in products:
+            self.product_in_category.append(product)
         connection.db.commit()
         cursor.close()
         return self.product_in_category

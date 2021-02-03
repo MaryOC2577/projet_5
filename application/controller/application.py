@@ -2,6 +2,7 @@
 
 from application.controller.mainmenu import MainMenu
 from application.controller.categorymenu import CatMenuController
+from application.model.product import Product
 
 
 class ApplicationControler:
@@ -12,18 +13,33 @@ class ApplicationControler:
         self.running = True
         self.main_menu = MainMenu()
         self.category_menu = CatMenuController()
+        self.product = Product()
 
     def main_choice(self):
         """Returns user choice."""
         self.main_menu.show()
         choice = input()
         if choice == "1":
-            self.category_menu.show()
+            self.category_choice()
         if choice == "2":
             print("Menu indisponible.")
         if choice == "3":
-            print("L'application va être fermée.")
+            print("Vous avez quitté l'application.")
             self.running = False
+
+    def category_choice(self):
+        """Return user category choice."""
+        self.category_menu.show()
+        choice = input()
+        self.product_choice(choice)
+
+    def product_choice(self, choice):
+        """Return user product choice."""
+        products = self.product.getin_onecategory(
+            self.category_menu.category_menu.main_choice[choice]
+        )
+        for product in products:
+            print(product, "\n")
 
     def show(self):
         """Show the application controller."""

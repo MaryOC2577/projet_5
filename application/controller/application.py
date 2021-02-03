@@ -1,9 +1,7 @@
 """Application controller."""
 
-from application.controller.mainmenu import MainController
+from application.controller.mainmenu import MainMenu
 from application.controller.categorymenu import CatMenuController
-from application.controller.productmenu import ProductMenuController
-from application.model.product import Product
 
 
 class ApplicationControler:
@@ -11,27 +9,26 @@ class ApplicationControler:
 
     def __init__(self):
         """Initialize application controller."""
+        self.running = True
+        self.main_menu = MainMenu()
+        self.category_menu = CatMenuController()
+
+    def main_choice(self):
+        """Returns user choice."""
+        self.main_menu.show()
+        choice = input()
+        if choice == "1":
+            self.category_menu.show()
+        if choice == "2":
+            print("Menu indisponible.")
+        if choice == "3":
+            print("L'application va être fermée.")
+            self.running = False
 
     def show(self):
         """Show the application controller."""
-        main_controller = MainController()
-        category_menu = CatMenuController()
-        product_menu = ProductMenuController()
-        product_list = Product()
-
-        main_controller.show()
-        main_choice = int(input())
-
-        if main_choice == 1:
-            category_menu.show()
-        if main_choice == 2:
-            print("2 - indisponible.")
-
-        cat_choice = int(input())
-
-        if cat_choice == 1:
-            product_menu.show()
-            print(product_list.getin_onecategory("biscuit"))
+        while self.running:
+            self.main_choice()
 
         # afficher le menu principal
         # l'utilisateur fait un choix 1 ou 2

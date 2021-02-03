@@ -8,8 +8,8 @@ class CatMenuController:
 
     def __init__(self):
         """Initialize the controller of the category menu."""
+        self.category_menu = CategoryMenu()
 
     def show(self):
         """Handle the category menu."""
-        category_menu = CategoryMenu()
-        category_menu.show()
+        self.category_menu.show()

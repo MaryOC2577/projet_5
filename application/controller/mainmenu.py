@@ -8,8 +8,8 @@ class MainController:
 
     def __init__(self):
         """Initialize the main menu controller."""
+        self.main_menu = MainMenu()
 
     def show(self):
         """Handle the main menu controller."""
-        main_menu = MainMenu()
-        main_menu.show()
+        self.main_menu.show()

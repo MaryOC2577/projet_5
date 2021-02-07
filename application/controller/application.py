@@ -43,7 +43,7 @@ class ApplicationControler:
         self.product_menu.show()
 
         for product in products:
-            print(product[0], product[1], "\n")
+            print(product[0], " - ", product[1], " - ", product[2], "\n")
 
     def show(self):
         """Show the application controller."""

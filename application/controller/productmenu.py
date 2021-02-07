@@ -11,5 +11,5 @@ class ProductMenuController:
         self.product_menu = ProductMenu()
 
     def show(self):
-        """Show the controller of the product menu."""
+        """Handle the controller of the product menu."""
         self.product_menu.show()

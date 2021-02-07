@@ -3,6 +3,7 @@
 from application.controller.mainmenu import MainMenu
 from application.controller.categorymenu import CatMenuController
 from application.controller.productmenu import ProductMenuController
+from application.controller.substitute import Substitute
 from application.model.product import Product
 
 
@@ -15,6 +16,7 @@ class ApplicationControler:
         self.main_menu = MainMenu()
         self.category_menu = CatMenuController()
         self.product_menu = ProductMenuController()
+        self.substitute_menu = Substitute()
         self.product = Product()
 
     def main_choice(self):
@@ -44,6 +46,12 @@ class ApplicationControler:
 
         for product in products:
             print(product[0], " - ", product[1], " - ", product[2], "\n")
+        self.substitute_choice()
+
+    def substitute_choice(self):
+        """Return user substitute choice."""
+        choice = input()
+        self.substitute_menu.show()
 
     def show(self):
         """Show the application controller."""

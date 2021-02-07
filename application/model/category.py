@@ -14,14 +14,14 @@ class Category:
         cursor = connection.get_cursor()
 
         sql = (
-            "SELECT cat_name FROM CATEGORY "
-            "INNER JOIN CATEGORY.id = catprod.cat_id "
-            "INNER JOIN PRODUCT.cat_id = catprod.product_id "
-            f"WHERE PRODUCT.id = '{product_id}'"
+            "SELECT cat_name FROM category "
+            "INNER JOIN catprod ON catprod.id_cat = category.id "
+            "INNER JOIN product ON product.id = catprod.id_prod "
+            f"WHERE PRODUCT.id = {product_id}"
         )
 
         cursor.execute(sql)
-        category_name = cursor.fetchone()
+        category_name = cursor.fetchone()[0]
 
         connection.db.commit()
         cursor.close()

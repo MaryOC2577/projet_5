@@ -25,8 +25,8 @@ class Substitute:
 
         cursor.execute(sql)
         substitutes = cursor.fetchall()
-        for product in products:
-            self.substitutes.append(product)
+        for substitute in substitutes:
+            self.substitutes.append(substitute)
         connection.db.commit()
         cursor.close()
         return self.substitutes

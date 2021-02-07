@@ -9,4 +9,4 @@ class ProductMenu:
 
     def show(self):
         """Show the product selection menu."""
-        print("Bienvenue sur la page prouits, Sélectionnez l'aliment : ")
+        print("Bienvenue sur la page prouits, Sélectionnez l'aliment : \n")

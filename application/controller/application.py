@@ -54,10 +54,7 @@ class ApplicationControler:
         """Return user substitute choice."""
         choice = input()
         self.substitute_menu.show()
-        print(
-            "La catégorie du produit sélectionné est : ",
-            self.category.get_name(choice),
-        )
+        self.category.get_name(choice)
 
     def show(self):
         """Show the application controller."""

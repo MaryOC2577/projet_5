@@ -2,6 +2,7 @@
 
 from application.controller.mainmenu import MainMenu
 from application.controller.categorymenu import CatMenuController
+from application.controller.productmenu import ProductMenuController
 from application.model.product import Product
 
 
@@ -13,6 +14,7 @@ class ApplicationControler:
         self.running = True
         self.main_menu = MainMenu()
         self.category_menu = CatMenuController()
+        self.product_menu = ProductMenuController()
         self.product = Product()
 
     def main_choice(self):
@@ -38,6 +40,7 @@ class ApplicationControler:
         products = self.product.getin_onecategory(
             self.category_menu.category_menu.main_choice[choice]
         )
+        self.product_menu.show()
         for product in products:
             print(product, "\n")
 

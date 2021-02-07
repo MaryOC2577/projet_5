@@ -9,6 +9,24 @@ class Category:
     def __init__(self):
         """Initiate category class."""
 
+    def get_name(self, product_id):
+        """Return category name according to the product id."""
+        cursor = connection.get_cursor()
+
+        sql = (
+            "SELECT cat_name FROM CATEGORY "
+            "INNER JOIN CATEGORY.id = catprod.cat_id "
+            "INNER JOIN PRODUCT.cat_id = catprod.product_id "
+            f"WHERE PRODUCT.id = '{product_id}'"
+        )
+
+        cursor.execute(sql)
+        category_name = cursor.fetchone()
+
+        connection.db.commit()
+        cursor.close()
+        return category_name
+
     def get_id(self, name_category):
         """Return the id according to the name."""
         cursor = connection.get_cursor()

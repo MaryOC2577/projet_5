@@ -25,8 +25,10 @@ class Product:
         cursor.execute(sql)
         products = cursor.fetchall()
         self.product_in_category = []
+        id = 1
         for product in products:
-            self.product_in_category.append(product)
+            self.product_in_category.append(id, product)
+            id += 1
         connection.db.commit()
         cursor.close()
         return self.product_in_category

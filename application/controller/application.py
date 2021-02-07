@@ -41,8 +41,9 @@ class ApplicationControler:
             self.category_menu.category_menu.main_choice[choice]
         )
         self.product_menu.show()
+
         for product in products:
-            print(product, "\n")
+            print("Nom : ", product[0], "Description : ", product[1], "\n")
 
     def show(self):
         """Show the application controller."""

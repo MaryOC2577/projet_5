@@ -3,11 +3,11 @@
 from application.model.connection import connection
 
 
-class Substitute:
+class SubstiModel:
     """Handle substitute."""
 
     def __init__(self):
-        """Initialized substitute."""
+        """Initialize substitute."""
         self.substitutes = []
 
     def show(self, category_name):
@@ -29,4 +29,3 @@ class Substitute:
             self.substitutes.append(substitute)
         connection.db.commit()
         cursor.close()
-        return self.substitutes

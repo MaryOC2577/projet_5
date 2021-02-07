@@ -17,7 +17,7 @@ class Product:
         cursor = connection.get_cursor()
 
         sql = (
-            "SELECT product_name, product_description from product "
+            "SELECT product.id, product_name, product_description from product "
             "INNER JOIN catprod ON product.id = catprod.id_prod "
             "INNER JOIN category ON category.id = catprod.id_cat "
             f"where category.cat_name LIKE '%{category}%';"
@@ -25,10 +25,8 @@ class Product:
         cursor.execute(sql)
         products = cursor.fetchall()
         self.product_in_category = []
-        id = 1
         for product in products:
-            self.product_in_category.append(id, product)
-            id += 1
+            self.product_in_category.append(product)
         connection.db.commit()
         cursor.close()
         return self.product_in_category

@@ -59,7 +59,7 @@ class ApplicationControler:
         self.category.get_name(choice)
         self.substitute.show(self.category.get_name(choice))
         for product in self.substitute.substitutes:
-            print(product)
+            print(product[0], " - ", product[1], " - ", product[2])
 
     def show(self):
         """Show the application controller."""

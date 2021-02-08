@@ -15,11 +15,12 @@ class SubstiModel:
         cursor = connection.get_cursor()
 
         sql = (
-            "select product_name, product_description, nutriscore.nutri_value from product "
+            "select product_name, product_description, "
+            "nutriscore.nutri_value from product "
             "inner join catprod ON product.id = catprod.id_prod "
             "inner join category ON category.id = catprod.id_cat "
             "inner join nutriscore ON nutriscore.id = product.nutri_id "
-            f"where category.cat_name like '{category_name}'"
+            f"where category.cat_name='{category_name}' "
             "order by nutriscore.nutri_value;"
         )
 

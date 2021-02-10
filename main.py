@@ -1,11 +1,21 @@
 """Main."""
 
 from application.controller.application import ApplicationControler
+from application.model.setup.cleaner import ProductCleaner
 
-# from application.model.setup.cleaner import ProductCleaner
+RUNNING = True
 
-# productsCleaned = ProductCleaner()
-application = ApplicationControler()
-
-# productsCleaned.get_products_from_off()
-application.run()
+while RUNNING:
+    choice = input(
+        "1- Création et installation de la base\n2- Application\n3- Quitter"
+    )
+    if choice == "1":
+        productsCleaned = ProductCleaner()
+        productsCleaned.get_products_from_off()
+    if choice == "2":
+        application = ApplicationControler()
+        application.run()
+    if choice == "3":
+        RUNNING = False
+    else:
+        print("Veuillez saisir le numéro correspondant à l'option.")

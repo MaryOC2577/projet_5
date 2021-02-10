@@ -15,7 +15,7 @@ class InitDatabase:
         database="product",
     )
     mycursor = mydb.cursor()
-    # mycursor.execute("CREATE DATABASE product")
+    mycursor.execute("CREATE DATABASE product")
 
     fd = open(SCRIPTSQL, "r")
     sqlFile = fd.read()
@@ -27,3 +27,6 @@ class InitDatabase:
         except IOError as msg:
             msg = "Command skipped"
             print(msg)
+
+
+initbase = InitDatabase()

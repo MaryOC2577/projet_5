@@ -7,7 +7,7 @@ RUNNING = True
 
 while RUNNING:
     choice = input(
-        "1- Création et installation de la base\n2- Application\n3- Quitter"
+        "1- Création et installation de la base\n2- Application\n3- Quitter\n"
     )
     if choice == "1":
         productsCleaned = ProductCleaner()

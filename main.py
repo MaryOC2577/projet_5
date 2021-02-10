@@ -8,4 +8,4 @@ from application.controller.application import ApplicationControler
 application = ApplicationControler()
 
 # productsCleaned.get_products_from_off()
-application.show()
+application.run()

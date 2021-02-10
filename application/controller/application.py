@@ -23,7 +23,7 @@ class ApplicationControler:
         self.category = Category()
         self.substitute = SubstiModel()
 
-    def main_choice(self):
+    def get_main_choice(self):
         """Returns user choice."""
         self.main_menu.show()
         choice = input()
@@ -39,9 +39,9 @@ class ApplicationControler:
         """Return user category choice."""
         self.category_menu.show()
         choice = input()
-        self.product_choice(choice)
+        self.get_product_choice(choice)
 
-    def product_choice(self, choice):
+    def get_product_choice(self, choice):
         """Return user product choice."""
         products = self.product.getin_onecategory(
             self.category_menu.category_menu.main_choice[choice]
@@ -50,9 +50,9 @@ class ApplicationControler:
 
         for product in products:
             print(product[0], " - ", product[1], " - ", product[2], "\n")
-        self.substitute_choice()
+        self.get_substitute_choice()
 
-    def substitute_choice(self):
+    def get_substitute_choice(self):
         """Return user substitute choice."""
         self.substitute_menu.show()
         choice = input()
@@ -64,7 +64,7 @@ class ApplicationControler:
     def show(self):
         """Show the application controller."""
         while self.running:
-            self.main_choice()
+            self.get_main_choice()
 
         # afficher le menu principal
         # l'utilisateur fait un choix 1 ou 2

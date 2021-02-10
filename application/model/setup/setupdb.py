@@ -15,10 +15,11 @@ class InitDatabase:
             host="localhost",
             user="root",
             password="Ma25Bo77Yi181",
+            database="product",
         )
         mycursor = mydb.cursor()
-        mycursor.execute("CREATE DATABASE product")
-        mycursor.execute("USE DATABASE product")
+        # mycursor.execute("CREATE DATABASE product")
+        # mycursor.execute("USE DATABASE product")
 
         fd = open(SCRIPTSQL, "r")
         sqlFile = fd.read()

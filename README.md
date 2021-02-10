@@ -3,11 +3,10 @@
 Requirements
 
 Visual Studio Code version : 1.53.1
-Visual Studio Code dependencies : flake8, pylint, pydocstyle, black and mypy.
+Visual Studio Code dependencies : flake8, pylint, pydocstyle, black, pylance and mypy.
 Virtual environnement with venv module.
 Python version : 3.8.2
-MySQL version : 8.0.21
-SQL version :
+MySQL version : 3.5.2
 
 
 Setup

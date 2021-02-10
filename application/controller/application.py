@@ -54,7 +54,7 @@ class ApplicationControler:
         self.product_menu.show()
 
         for product in products:
-            print(product[0], " - ", product[1], " - ", product[2], "\n")
+            print(product[0], " - ", product[1], " - ", product[2])
         self.get_substitute_choice()
 
     def get_substitute_choice(self):

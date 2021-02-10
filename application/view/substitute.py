@@ -9,4 +9,4 @@ class SubstituteMenu:
 
     def show(self):
         """Show a substitute."""
-        print("Substituts disponibles pour le produit sélectionné : \n")
+        print("Substituts disponibles pour le produit sélectionné : ")

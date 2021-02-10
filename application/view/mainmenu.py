@@ -16,4 +16,4 @@ class MainMenu:
         """Show the main menu."""
         print("Bienvenue sur la page d'acceuil, faites votre choix :\n")
         for key, value in self.main_choice.items():
-            print(key, " - ", value, "\n")
+            print(key, " - ", value)

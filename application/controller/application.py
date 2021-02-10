@@ -23,6 +23,11 @@ class ApplicationControler:
         self.category = Category()
         self.substitute = SubstiModel()
 
+    def run(self):
+        """Run the application controller."""
+        while running:
+            self.get_main_choice()
+
     def get_main_choice(self):
         """Returns user choice."""
         self.main_menu.show()
@@ -60,16 +65,3 @@ class ApplicationControler:
         self.substitute.show(self.category.get_name(choice))
         for product in self.substitute.substitutes:
             print(product[0], " - ", product[1], " - ", product[2])
-
-    def show(self):
-        """Show the application controller."""
-        while self.running:
-            self.get_main_choice()
-
-        # afficher le menu principal
-        # l'utilisateur fait un choix 1 ou 2
-        # le controller menu principal retourne le choix de l'utilisateur
-        # pour le choix 1 afficher menu catégories (controller category)
-        # l'utilisateur choisi une catégorie
-        # SQL sélectionne produits dans catégorie choisie
-        # afficher menu prduits (résultats requête SQL)

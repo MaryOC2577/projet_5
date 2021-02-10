@@ -25,7 +25,7 @@ class ApplicationControler:
 
     def run(self):
         """Run the application controller."""
-        while running:
+        while self.running:
             self.get_main_choice()
 
     def get_main_choice(self):

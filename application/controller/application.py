@@ -29,8 +29,14 @@ class ApplicationControler:
             self.get_main_choice()
 
     def get_main_choice(self):
-        """Returns user choice."""
-        self.main_menu.show()
+        """Return user choice."""
+        if self.main_menu.show() == "category_choice":
+            self.get_category_choice()
+        if self.main_menu.show() == "substitute":
+            self.get_main_choice()
+        if self.main_menu.show() == "quit":
+            self.running = False
+
         # if self.main_menu.choice == "1":
         #   self.get_category_choice()
         # if self.main_menu.choice == "2":

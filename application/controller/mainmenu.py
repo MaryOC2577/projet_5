@@ -1,7 +1,6 @@
 """Controller of the main menu."""
 
 from application.view.mainmenu import MainMenu
-from application.controller.application import ApplicationControler
 
 
 class MainController:
@@ -10,19 +9,21 @@ class MainController:
     def __init__(self):
         """Initialize the main menu controller."""
         self.main_menu = MainMenu()
-        self.application = ApplicationControler(self)
         self.choice = ""
+        self.input_choice = ""
 
     def input(self):
         """Handle input user of the main menu."""
         self.choice = input()
         if self.choice == "1":
-            self.application.get_category_choice()
+            self.input_choice = "category_choice"
         if self.choice == "2":
             self.main_menu.get_message("Menu indisponible.")
+            self.input_choice = "substitute"
         if self.choice == "3":
             self.main_menu.get_message("Vous allez quitter l'application.")
-            self.application.running = False
+            self.input_choice = "quit"
+        return self.input_choice
 
     def show(self):
         """Handle the main menu controller."""

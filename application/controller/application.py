@@ -30,11 +30,12 @@ class ApplicationControler:
 
     def get_main_choice(self):
         """Return user choice."""
-        if self.main_menu.show() == "category_choice":
+        self.main_menu.show()
+        if self.main_menu.input() == "category_choice":
             self.get_category_choice()
-        if self.main_menu.show() == "substitute":
+        if self.main_menu.input() == "substitute":
             self.get_main_choice()
-        if self.main_menu.show() == "quit":
+        if self.main_menu.input() == "quit":
             self.running = False
 
         # if self.main_menu.choice == "1":

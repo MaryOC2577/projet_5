@@ -28,4 +28,3 @@ class MainController:
     def show(self):
         """Handle the main menu controller."""
         self.main_menu.show()
-        self.input()

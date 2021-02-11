@@ -9,8 +9,7 @@ class InitDatabase:
     """Initiate database."""
 
     def setup_database(self):
-        """Setup the database."""
-
+        """Set the database."""
         mydb = mysql.connector.connect(
             host="localhost",
             user="root",

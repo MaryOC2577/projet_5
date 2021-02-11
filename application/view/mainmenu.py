@@ -11,6 +11,12 @@ class MainMenu:
             "2": "Retrouvez mes aliments substitués",
             "3": "Quitter",
         }
+        self.message = ""
+
+    def get_message(self, message):
+        """Get get a message based on user choice."""
+        print(message)
+        self.message = ""
 
     def show(self):
         """Show the main menu."""

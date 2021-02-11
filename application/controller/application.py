@@ -1,6 +1,6 @@
 """Application controller."""
 
-from application.controller.mainmenu import MainMenu
+from application.controller.mainmenu import MainController
 from application.controller.categorymenu import CatMenuController
 from application.controller.productmenu import ProductMenuController
 from application.controller.substitute import Substitute
@@ -15,7 +15,7 @@ class ApplicationControler:
     def __init__(self):
         """Initialize application controller."""
         self.running = True
-        self.main_menu = MainMenu()
+        self.main_menu = MainController()
         self.category_menu = CatMenuController()
         self.product_menu = ProductMenuController()
         self.substitute_menu = Substitute()
@@ -31,16 +31,15 @@ class ApplicationControler:
     def get_main_choice(self):
         """Returns user choice."""
         self.main_menu.show()
-        choice = input()
-        if choice == "1":
-            self.category_choice()
-        if choice == "2":
-            print("Menu indisponible.")
-        if choice == "3":
-            print("Vous avez quitté l'application.")
-            self.running = False
+        # if self.main_menu.choice == "1":
+        #   self.get_category_choice()
+        # if self.main_menu.choice == "2":
+        #    print("Menu indisponible.")
+        # if self.main_menu.choice == "3":
+        #    print("Vous avez quitté l'application.")
+        #    self.running = False
 
-    def category_choice(self):
+    def get_category_choice(self):
         """Return user category choice."""
         self.category_menu.show()
         choice = input()

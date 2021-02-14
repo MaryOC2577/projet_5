@@ -38,14 +38,6 @@ class ApplicationControler:
         if self.main_menu.input() == "quit":
             self.running = False
 
-        # if self.main_menu.choice == "1":
-        #   self.get_category_choice()
-        # if self.main_menu.choice == "2":
-        #    print("Menu indisponible.")
-        # if self.main_menu.choice == "3":
-        #    print("Vous avez quitté l'application.")
-        #    self.running = False
-
     def get_category_choice(self):
         """Return user category choice."""
         self.category_menu.show()

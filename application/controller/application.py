@@ -41,14 +41,11 @@ class ApplicationControler:
     def get_category_choice(self):
         """Return user category choice."""
         self.category_menu.show()
-        choice = input()
-        self.get_product_choice(choice)
+        self.get_product_choice(self.category_menu.input())
 
     def get_product_choice(self, choice):
         """Return user product choice."""
-        products = self.product.getin_onecategory(
-            self.category_menu.category_menu.main_choice[choice]
-        )
+        products = self.product.getin_onecategory(choice)
         self.product_menu.show()
 
         for product in products:
@@ -61,5 +58,6 @@ class ApplicationControler:
         choice = input()
         self.category.get_name(choice)
         self.substitute.show(self.category.get_name(choice))
+
         for product in self.substitute.substitutes:
             print(product[0], " - ", product[1], " - ", product[2])

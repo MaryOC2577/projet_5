@@ -20,7 +20,8 @@ class Product:
             "SELECT product.id, product_name, product_description from product "
             "INNER JOIN catprod ON product.id = catprod.id_prod "
             "INNER JOIN category ON category.id = catprod.id_cat "
-            f"where category.cat_name LIKE '%{category}%';"
+            f"where category.cat_name LIKE '%{category}%' "
+            "limit 20;"
         )
         cursor.execute(sql)
         products = cursor.fetchall()

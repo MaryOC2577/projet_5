@@ -9,6 +9,15 @@ class CatMenuController:
     def __init__(self):
         """Initialize the controller of the category menu."""
         self.category_menu = CategoryMenu()
+        self.choice = ""
+        self.input_choice = ""
+
+    def input(self):
+        """Handle input user of the main menu."""
+        self.choice = input()
+        if self.choice in self.category_menu.main_choice:
+            self.input_choice = self.category_menu.main_choice[self.choice]
+        return self.input_choice
 
     def show(self):
         """Handle the category menu."""

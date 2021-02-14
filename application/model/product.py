@@ -12,6 +12,25 @@ class Product:
         self.product_cat = []
         self.product_in_category = []
 
+    def get_one(self, product_id):
+        """Get one product with nutriscore."""
+        cursor = connection.get_cursor()
+
+        sql = (
+            "select product.id, product_name, product_description, "
+            "nutriscore.nutri_value "
+            "from product "
+            "INNER JOIN nutriscore ON nutriscore.id = product.nutri_id "
+            f"where product.id ='{product_id}';"
+        )
+
+        cursor.execute(sql)
+        product = cursor.fetchall()
+        breakpoint()
+        connection.db.commit()
+        cursor.close()
+        return product
+
     def getin_onecategory(self, category):
         """Get a list of proucts in one category."""
         cursor = connection.get_cursor()

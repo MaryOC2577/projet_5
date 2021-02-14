@@ -3,12 +3,12 @@
 from application.view.substitute import SubstituteMenu
 
 
-class Substitute:
+class SubstituteController:
     """Display a substitute."""
 
     def __init__(self):
         """Initialize a substitute."""
-        self.substitute_menu = SubstituteMenu()
+        self.substitute_view = SubstituteMenu()
         self.choice = ""
 
     def input(self):
@@ -18,4 +18,4 @@ class Substitute:
 
     def show(self, products):
         """Handle the substitute menu."""
-        self.substitute_menu.show(products)
+        self.substitute_view.show(products)

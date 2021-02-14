@@ -3,7 +3,7 @@
 from application.controller.mainmenu import MainController
 from application.controller.categorymenu import CatMenuController
 from application.controller.productmenu import ProductMenuController
-from application.controller.substitute import Substitute
+from application.controller.substitute import SubstituteController
 from application.model.product import Product
 from application.model.category import Category
 from application.model.sustitute import SubstiModel
@@ -18,11 +18,11 @@ class ApplicationControler:
         self.main_menu = MainController()
         self.category_menu = CatMenuController()
         self.product_menu = ProductMenuController()
-        self.substitute_menu = Substitute()
+        self.substitute_menu = SubstituteController()
         self.product = Product()
         self.category = Category()
         self.substitute = SubstiModel()
-        self.substitute_list = self.substitute.substi_list
+        self.substitute_list = []
 
     def run(self):
         """Run the application controller."""
@@ -36,7 +36,8 @@ class ApplicationControler:
             self.get_category_choice()
         if self.main_menu.input() == "substitute":
             # self.get_main_choice()
-            self.substitute_menu.substitute_menu.show_save_substi(
+            breakpoint()
+            self.substitute_menu.substitute_view.show_save_substi(
                 self.substitute_list
             )
         if self.main_menu.input() == "quit":
@@ -66,4 +67,4 @@ class ApplicationControler:
         self.substitute.save_substitute(
             self.substitute_menu.input(), id_product
         )
-        # self.substitute_list = self.substitute.substi_list
+        self.substitute_list = self.substitute.substi_list

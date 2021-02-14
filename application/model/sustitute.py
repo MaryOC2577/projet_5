@@ -9,6 +9,20 @@ class SubstiModel:
     def __init__(self):
         """Initialize substitute."""
         self.substitutes = []
+        self.substi_list = []
+
+    def get_list(self):
+        """Get a list of all substitutes."""
+        cursor = connection.get_cursor()
+
+        sql = "select * from product where substitute is not null;"
+
+        cursor.execute(sql)
+        self.substi_list = cursor.fetchall()
+        breakpoint()
+        connection.db.commit()
+        cursor.close()
+        return self.substi_list
 
     def save_substitute(self, id_substitut, id_product):
         """Save a substitute for a product in database."""

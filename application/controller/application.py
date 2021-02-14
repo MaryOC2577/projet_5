@@ -22,6 +22,7 @@ class ApplicationControler:
         self.product = Product()
         self.category = Category()
         self.substitute = SubstiModel()
+        self.substitute_list = self.substitute.substi_list
 
     def run(self):
         """Run the application controller."""
@@ -34,7 +35,10 @@ class ApplicationControler:
         if self.main_menu.input() == "category_choice":
             self.get_category_choice()
         if self.main_menu.input() == "substitute":
-            self.get_main_choice()
+            # self.get_main_choice()
+            self.substitute_menu.substitute_menu.show_save_substi(
+                self.substitute_list
+            )
         if self.main_menu.input() == "quit":
             self.running = False
 
@@ -62,3 +66,4 @@ class ApplicationControler:
         self.substitute.save_substitute(
             self.substitute_menu.input(), id_product
         )
+        # self.substitute_list = self.substitute.substi_list

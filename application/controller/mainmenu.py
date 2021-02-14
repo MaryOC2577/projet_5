@@ -18,7 +18,7 @@ class MainController:
         if self.choice == "1":
             self.input_choice = "category_choice"
         if self.choice == "2":
-            self.main_menu.get_message("Menu indisponible.")
+            # self.main_menu.get_message("Menu indisponible.")
             self.input_choice = "substitute"
         if self.choice == "3":
             self.main_menu.get_message("Vous allez quitter l'application.")

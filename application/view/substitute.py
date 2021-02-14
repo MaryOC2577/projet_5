@@ -21,3 +21,8 @@ class SubstituteMenu:
                 product[3],
             )
         print("Choisir le substitut à sauvegarder : ")
+
+    def show_save_substi(self, subsitutes):
+        """Show  substitutes in database."""
+        for substitute in subsitutes:
+            print(substitute)

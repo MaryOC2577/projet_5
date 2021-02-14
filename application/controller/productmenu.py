@@ -10,6 +10,6 @@ class ProductMenuController:
         """Initializa the controller of the product menu."""
         self.product_menu = ProductMenu()
 
-    def show(self):
+    def show(self, products):
         """Handle the controller of the product menu."""
-        self.product_menu.show()
+        self.product_menu.show(products)

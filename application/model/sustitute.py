@@ -10,12 +10,26 @@ class SubstiModel:
         """Initialize substitute."""
         self.substitutes = []
 
+    def save_substitute(self, id_substitut, id_product):
+        """Save a substitute for a product in database."""
+        cursor = connection.get_cursor()
+
+        sql = (
+            "UPDATE product "
+            f"SET substitute = '{id_substitut}' "
+            f"WHERE id = '{id_product}';"
+        )
+
+        cursor.execute(sql)
+        connection.db.commit()
+        cursor.close()
+
     def show(self, category_name):
         """Return a substitute."""
         cursor = connection.get_cursor()
 
         sql = (
-            "select product_name, product_description, "
+            "select product.id, product_name, product_description, "
             "nutriscore.nutri_value from product "
             "inner join catprod ON product.id = catprod.id_prod "
             "inner join category ON category.id = catprod.id_cat "

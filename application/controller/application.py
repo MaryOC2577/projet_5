@@ -55,3 +55,10 @@ class ApplicationControler:
         # ajouter une méthode qui affiche le produit sélectionné avec nutriscore
         # self.product_menu.show_one(int(self.product_menu.choice))
         self.substitute_menu.show(self.substitute.substitutes)
+        self.save_substitute(self.product_menu.choice)
+
+    def save_substitute(self, id_product):
+        """Save substitute in database."""
+        self.substitute.save_substitute(
+            self.substitute_menu.input(), id_product
+        )

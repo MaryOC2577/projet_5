@@ -29,7 +29,7 @@ class ApplicationControler:
             self.get_main_choice()
 
     def get_main_choice(self):
-        """Return user choice."""
+        """Return user choice for the main menu."""
         self.main_menu.show()
         if self.main_menu.input() == "category_choice":
             self.get_category_choice()

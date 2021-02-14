@@ -16,6 +16,6 @@ class Substitute:
         self.choice = input()
         return self.choice
 
-    def show(self):
+    def show(self, products):
         """Handle the substitute menu."""
-        self.substitute_menu.show()
+        self.substitute_menu.show(products)

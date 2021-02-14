@@ -52,9 +52,9 @@ class ApplicationControler:
     def get_substitute_choice(self):
         """Return user substitute choice."""
         self.substitute_menu.show()
-        choice = input()
-        self.category.get_name(choice)
-        self.substitute.show(self.category.get_name(choice))
+        self.substitute.show(
+            self.category.get_name(self.substitute_menu.input())
+        )
 
         for product in self.substitute.substitutes:
             print(product[0], " - ", product[1], " - ", product[2])

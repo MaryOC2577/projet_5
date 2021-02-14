@@ -9,6 +9,12 @@ class Substitute:
     def __init__(self):
         """Initialize a substitute."""
         self.substitute_menu = SubstituteMenu()
+        self.choice = ""
+
+    def input(self):
+        """Handle input user of the substitute menu."""
+        self.choice = input()
+        return self.choice
 
     def show(self):
         """Handle the substitute menu."""

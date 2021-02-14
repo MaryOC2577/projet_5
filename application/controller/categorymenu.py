@@ -13,7 +13,7 @@ class CatMenuController:
         self.input_choice = ""
 
     def input(self):
-        """Handle input user of the main menu."""
+        """Handle input user of the category menu."""
         self.choice = input()
         if self.choice in self.category_menu.main_choice:
             self.input_choice = self.category_menu.main_choice[self.choice]

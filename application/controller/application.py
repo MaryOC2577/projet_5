@@ -15,11 +15,13 @@ class ApplicationControler:
     def __init__(self):
         """Initialize application controller."""
         self.running = True
+        self.controller = MainController()
+
         self.main_menu = MainController()
         self.category_menu = CatMenuController()
         self.product_menu = ProductMenuController()
         self.substitute_menu = SubstituteController()
-        self.product = Product()
+        self.product = Prget_oneoduct()
         self.category = Category()
         self.substitute = SubstiModel()
         self.substitute_list = []
@@ -27,38 +29,45 @@ class ApplicationControler:
     def run(self):
         """Run the application controller."""
         while self.running:
-            self.get_main_choice()
+            self.controller.show()
+            command = self.controller.input()
+            self.update(command)
 
-    def get_main_choice(self):
-        """Return user choice for the main menu."""
-        self.main_menu.show()
-        if self.main_menu.input() == "category_choice":
-            self.get_category_choice()
-        if self.main_menu.input() == "substitute":
-            # self.get_main_choice()
-            breakpoint()
-            self.substitute_menu.substitute_view.show_save_substi(
-                self.substitute_list
-            )
-        if self.main_menu.input() == "quit":
+    def update(self, command: str):
+        """Update the application."""
+        if command == "category_choice":
+            self.controller = CatMenuController()
+
+        # on part du principe qu'on a une command avec les ids de substituts dedans: ex "substitute-base123-12-123-432-124"
+        if command.startswith("substitute"):
+            # splitted = command.split("-")
+            # base_product_id = splitted[1].replace("base", "")
+            # substitutes_ids = command.split("-")[2:]
+            # substitutes_ids = [int(pk) for pk in substitutes_ids]
+            # substitutes = [self.product.get_one(pk=pk) for pk in substitutes_ids]
+            # breakpoint()
+            # self.substitute_menu.substitute_view.show_save_substi(
+            #     self.substitute_list
+            # )
+            self.controller = SubstituteController(substitutes=substitutes)
+
+        if command.startswith("select-category"):
+            category_name = command.split("-")[2]
+            products = self.product.getin_onecategory(category_name)
+            self.controller = ProductMenuController(products=products)
+
+        if command.startswith("get-product"):
+            product_id = command.split("-")[2]
+            product = self.product.get_one(product_id)
+            self.controller = SubstituteController(product)  # gérer cette partie
+
+
+        if command == "quit":
             self.running = False
 
-    def get_category_choice(self):
-        """Return user category choice."""
-        self.category_menu.show()
-        self.get_product_choice(self.category_menu.input())
-
-    def get_product_choice(self, choice):
-        """Return user product choice."""
-        products = self.product.getin_onecategory(choice)
-        self.product_menu.show(products)
-        self.get_substitute_choice()
-
-    def get_substitute_choice(self):
+    def get_substitute_choice(self, choice):
         """Return user substitute choice."""
-        self.substitute.show(self.category.get_name(self.product_menu.input()))
-        # ajouter une méthode qui affiche le produit sélectionné avec nutriscore
-        # self.product_menu.show_one(int(self.product_menu.choice))
+        self.substitute.show(self.category.get_name(choice))
         self.substitute_menu.show(self.substitute.substitutes)
         self.save_substitute(self.product_menu.choice)
 

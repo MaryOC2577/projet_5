@@ -6,8 +6,9 @@ from application.view.substitute import SubstituteMenu
 class SubstituteController:
     """Display a substitute."""
 
-    def __init__(self):
+    def __init__(self, product):
         """Initialize a substitute."""
+        self.product = product
         self.substitute_view = SubstituteMenu()
         self.choice = ""
 

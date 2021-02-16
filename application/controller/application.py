@@ -36,7 +36,6 @@ class ApplicationControler:
             self.get_category_choice()
         if self.main_menu.input() == "substitute":
             # self.get_main_choice()
-            breakpoint()
             self.substitute_menu.substitute_view.show_save_substi(
                 self.substitute_list
             )

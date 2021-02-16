@@ -36,11 +36,11 @@ class Product:
         cursor = connection.get_cursor()
 
         sql = (
-            "SELECT product.id, product_name, product_description from product "
+            "SELECT distinct product.id, product_name, product_description from product "
             "INNER JOIN catprod ON product.id = catprod.id_prod "
             "INNER JOIN category ON category.id = catprod.id_cat "
             f"where category.cat_name LIKE '%{category}%' "
-            "limit 20;"
+            "limit 40;"
         )
         cursor.execute(sql)
         products = cursor.fetchall()

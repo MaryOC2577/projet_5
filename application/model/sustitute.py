@@ -43,7 +43,7 @@ class SubstiModel:
         cursor = connection.get_cursor()
 
         sql = (
-            "select product.id, product_name, product_description, "
+            "select distinct product.id, product_name, product_description, "
             "nutriscore.nutri_value from product "
             "inner join catprod ON product.id = catprod.id_prod "
             "inner join category ON category.id = catprod.id_cat "

@@ -70,3 +70,4 @@ class ApplicationControler:
             self.substitute_menu.input(), id_product
         )
         self.substitute_list = self.substitute.substi_list
+        self.substitute_menu.save_confirmed(ù)

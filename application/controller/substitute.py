@@ -16,6 +16,10 @@ class SubstituteController:
         self.choice = input()
         return self.choice
 
+    def save_confirmed(self):
+        """Save substitute confirmed."""
+        self.substitute_view.save_confirmed()
+
     def show(self, products):
         """Handle the substitute menu."""
         self.substitute_view.show(products)

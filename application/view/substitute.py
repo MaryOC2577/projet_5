@@ -7,6 +7,10 @@ class SubstituteMenu:
     def __init__(self):
         """Initialize the substitute display menu."""
 
+    def save_confirmed(self):
+        """Show a confirmation of substitute save."""
+        print("Le substitut a été enregistré.")
+
     def show(self, products):
         """Show a substitute."""
         print("Substituts disponibles pour le produit sélectionné : ")

@@ -19,7 +19,6 @@ class SubstiModel:
 
         cursor.execute(sql)
         self.substi_list = cursor.fetchall()
-        breakpoint()
         connection.db.commit()
         cursor.close()
         return self.substi_list

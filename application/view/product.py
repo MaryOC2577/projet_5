@@ -10,7 +10,9 @@ class ProductMenu:
     def show_one(self, product):
         """Show on prouct with id."""
         print("Le produit sélectionné est :")
-        print(product[0], " - ", product[1], " ", product[2], " - ", product[3])
+        print(
+            product[0], " - ", product[1], " - ", product[2], " - ", product[3]
+        )
 
     def show(self, products):
         """Show the product selection menu."""

@@ -25,8 +25,7 @@ class Product:
         )
 
         cursor.execute(sql)
-        product = cursor.fetchall()
-        breakpoint()
+        product = cursor.fetchone()
         connection.db.commit()
         cursor.close()
         return product

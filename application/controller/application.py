@@ -57,6 +57,9 @@ class ApplicationControler:
         """Return user substitute choice."""
         self.substitute.show(self.category.get_name(self.product_menu.input()))
         # ajouter une méthode qui affiche le produit sélectionné avec nutriscore
+        self.product_menu.show_one(
+            self.product.get_one(self.product_menu.choice)
+        )
         # self.product_menu.show_one(int(self.product_menu.choice))
         self.substitute_menu.show(self.substitute.substitutes)
         self.save_substitute(self.product_menu.choice)

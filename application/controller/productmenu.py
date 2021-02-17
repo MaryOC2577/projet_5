@@ -20,7 +20,7 @@ class ProductMenuController:
 
     def show_one(self, product_id):
         """Show one product with id."""
-        self.product_menu.show_one(self.one_product.get_one(product_id))
+        self.product_menu.show_one(product_id)
 
     def show(self, products):
         """Handle the controller of the product menu."""

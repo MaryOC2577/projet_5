@@ -1,11 +1,11 @@
-"""Substitute display menu."""
+"""Substitute detail display menu."""
 
 
-class SubstituteMenu:
-    """Substitute display menu."""
+class SubstiDetail:
+    """Substitute detail display menu."""
 
     def __init__(self):
-        """Initialize the substitute display menu."""
+        """Initialize substitute detail menu."""
 
     def save_confirmed(self):
         """Show a confirmation of substitute save."""
@@ -25,8 +25,3 @@ class SubstituteMenu:
                 product[3],
             )
         print("Choisir le substitut à sauvegarder : ")
-
-    def show_save_substi(self, subsitutes):
-        """Show  substitutes in database."""
-        for substitute in subsitutes:
-            print(substitute)

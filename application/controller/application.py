@@ -3,7 +3,8 @@
 from application.controller.mainmenu import MainController
 from application.controller.categorymenu import CatMenuController
 from application.controller.productmenu import ProductMenuController
-from application.controller.substitute import SubstituteController
+from application.controller.substidetail import SubstiDetailController
+from application.controller.favorites import FavoritesController
 from application.model.product import Product
 from application.model.category import Category
 from application.model.sustitute import SubstiModel
@@ -18,9 +19,10 @@ class ApplicationControler:
         self.main_menu = MainController()
         self.category_menu = CatMenuController()
         self.product_menu = ProductMenuController()
-        self.substitute_menu = SubstituteController()
+        self.substitute_menu = SubstiDetailController()
         self.product = Product()
         self.category = Category()
+        self.favorites = FavoritesController()
         self.substitute = SubstiModel()
         self.substitute_list = []
 
@@ -35,10 +37,7 @@ class ApplicationControler:
         if self.main_menu.input() == "category_choice":
             self.get_category_choice()
         if self.main_menu.input() == "substitute":
-            # self.get_main_choice()
-            self.substitute_menu.substitute_view.show_save_substi(
-                self.substitute_list
-            )
+            self.favorites.show(self.substitute.get_list())
         if self.main_menu.input() == "quit":
             self.running = False
 
@@ -69,5 +68,4 @@ class ApplicationControler:
         self.substitute.save_substitute(
             self.substitute_menu.input(), id_product
         )
-        self.substitute_list = self.substitute.substi_list
         self.substitute_menu.save_confirmed()

@@ -7,7 +7,7 @@ from application.controller.substidetail import SubstiDetailController
 from application.controller.favorites import FavoritesController
 from application.model.product import Product
 from application.model.category import Category
-from application.model.sustitute import SubstiModel
+from application.model.substitute import SubstiModel
 
 
 class ApplicationControler:
@@ -24,7 +24,6 @@ class ApplicationControler:
         self.category = Category()
         self.favorites = FavoritesController()
         self.substitute = SubstiModel()
-        self.substitute_list = []
 
     def run(self):
         """Run the application controller."""
@@ -55,11 +54,9 @@ class ApplicationControler:
     def get_substitute_choice(self):
         """Return user substitute choice."""
         self.substitute.show(self.category.get_name(self.product_menu.input()))
-        # ajouter une méthode qui affiche le produit sélectionné avec nutriscore
         self.product_menu.show_one(
             self.product.get_one(self.product_menu.choice)
         )
-        # self.product_menu.show_one(int(self.product_menu.choice))
         self.substitute_menu.show(self.substitute.substitutes)
         self.save_substitute(self.product_menu.choice)
 

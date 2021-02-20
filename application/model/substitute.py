@@ -44,7 +44,7 @@ class SubstiModel:
 
         sql = (
             "select distinct product.id, product_name, product_description, "
-            "nutriscore.nutri_value from product "
+            "nutriscore.nutri_value, product_url from product "
             "inner join catprod ON product.id = catprod.id_prod "
             "inner join category ON category.id = catprod.id_cat "
             "inner join nutriscore ON nutriscore.id = product.nutri_id "

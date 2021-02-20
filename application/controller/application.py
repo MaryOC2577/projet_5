@@ -40,8 +40,9 @@ class ApplicationController:
             self.controller.show_one(product)
             self.controller = SubstiDetailController(product)
         if command.startswith("get-substitute"):
-            substitute_id = command.split("-")[2:]
-            self.substitute.save_substitute(substitute_id)
+            substitute_id = command.split("-")[2:][0]
+            product_id = command.split("-")[3:][0]
+            self.substitute.save_substitute(substitute_id, product_id)
             self.controller.save_confirmed()
             self.controller = MainController()
         if command == "substitute":

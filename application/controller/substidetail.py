@@ -14,12 +14,11 @@ class SubstiDetailController:
         self.subsittutes = SubstiModel()
         self.substidetail_view = SubstiDetail()
         self.cat_name = Category()
-        self.choice = ""
 
     def input(self):
         """Handle input user of the substi detail menu."""
-        self.choice = input()
-        return "get-substitute-" + self.choice
+        choice = input()
+        return "get-substitute-" + choice + "-" + str(self.product[0])
 
     def save_confirmed(self):
         """Save substitute confirmed."""
@@ -28,5 +27,5 @@ class SubstiDetailController:
     def show(self):
         """Handle the substitute menu."""
         self.substidetail_view.show(
-            self.subsittutes.show(self.cat_name.get_name(self.product))
+            self.subsittutes.show(self.cat_name.get_name(self.product[0]))
         )

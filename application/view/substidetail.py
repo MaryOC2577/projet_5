@@ -23,5 +23,7 @@ class SubstiDetail:
                 product[2],
                 " - ",
                 product[3],
+                " - ",
+                product[4],
             )
         print("Choisir le substitut à sauvegarder : ")

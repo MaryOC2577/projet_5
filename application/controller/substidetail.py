@@ -6,15 +6,16 @@ from application.view.substidetail import SubstiDetail
 class SubstiDetailController:
     """Substitute detail controller menu."""
 
-    def __init__(self):
+    def __init__(self, product):
         """Initialize substitute detail controller menu."""
+        self.product = product
         self.substidetail_view = SubstiDetail()
         self.choice = ""
 
     def input(self):
         """Handle input user of the substi detail menu."""
         self.choice = input()
-        return self.choice
+        return "get-substitute-" + self.choice
 
     def save_confirmed(self):
         """Save substitute confirmed."""

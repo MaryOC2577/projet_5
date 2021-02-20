@@ -1,6 +1,6 @@
 """Main."""
 
-from application.controller.application import ApplicationControler
+from application.controller.application import ApplicationController
 from application.model.setup.cleaner import ProductCleaner
 from application.model.setup.setupdb import initbase
 
@@ -15,7 +15,7 @@ while RUNNING:
         productsCleaned = ProductCleaner()
         productsCleaned.get_products_from_off()
     if choice == "2":
-        application = ApplicationControler()
+        application = ApplicationController()
         application.run()
     if choice == "3":
         RUNNING = False

@@ -37,6 +37,7 @@ class ApplicationController:
         if command.startswith("get-product"):
             product_id = command.split("-")[2]
             product = self.product.get_one(product_id)
+            self.controller.show_one(product)
             self.controller = SubstiDetailController(product)
         if command.startswith("get-substitute"):
             substitute_id = command.split("-")[2:]
@@ -47,3 +48,5 @@ class ApplicationController:
             self.controller = FavoritesController()
         if command == "quit":
             self.running = False
+        if command == "":
+            self.controller = MainController()

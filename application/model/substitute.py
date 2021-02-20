@@ -59,3 +59,4 @@ class SubstiModel:
             self.substitutes.append(substitute)
         connection.db.commit()
         cursor.close()
+        return self.substitutes

@@ -1,6 +1,8 @@
 """Substitute detail controller menu."""
 
 from application.view.substidetail import SubstiDetail
+from application.model.substitute import SubstiModel
+from application.model.category import Category
 
 
 class SubstiDetailController:
@@ -9,7 +11,9 @@ class SubstiDetailController:
     def __init__(self, product):
         """Initialize substitute detail controller menu."""
         self.product = product
+        self.subsittutes = SubstiModel()
         self.substidetail_view = SubstiDetail()
+        self.cat_name = Category()
         self.choice = ""
 
     def input(self):
@@ -21,6 +25,8 @@ class SubstiDetailController:
         """Save substitute confirmed."""
         self.substidetail_view.save_confirmed()
 
-    def show(self, products):
+    def show(self):
         """Handle the substitute menu."""
-        self.substidetail_view.show(products)
+        self.substidetail_view.show(
+            self.subsittutes.show(self.cat_name.get_name(self.product))
+        )

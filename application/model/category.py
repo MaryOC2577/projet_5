@@ -19,7 +19,7 @@ class Category:
             "INNER JOIN product ON product.id = catprod.id_prod "
             f"WHERE PRODUCT.id = {product_id}"
         )
-
+        breakpoint()
         cursor.execute(sql)
         category_name = cursor.fetchone()[0]
 

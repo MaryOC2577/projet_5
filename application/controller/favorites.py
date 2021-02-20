@@ -12,6 +12,10 @@ class FavoritesController:
         self.favorites = Favorites()
         self.substitutes = SubstiModel()
 
+    def input(self):
+        """Handle no input."""
+        return ""
+
     def show(self):
         """Show the favorites substitutes."""
         self.favorites.show(self.substitutes.get_list())

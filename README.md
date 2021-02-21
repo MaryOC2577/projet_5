@@ -10,10 +10,18 @@ MySQL version : 3.5.2
 
 
 Setup
-Before using the application, create a database with MySQL version XXX in localhost.
+Before using the application, create a database with MySQL version 3.5.2 in localhost.
+Step 1 : create a user and set a password
+Step 2 : connect to the database with the user account
+Setp 3 : execute the following instructions in SQL
+    1 CREATE DATABASE product;
+    2 USE DATABASE product;
+Step 4 : enter user and password in file config.py
+Step 5 : launch the application with the command "python main.py" in Visual Studio Code
+Step 6 : 
 
 How to use
-If you use the application for the first time, choose first option in the main menu : "XXX"
+If you use the application for the first time, choose first option in the main menu
 to create the database and insert data products.
-You will need to enter your user's name and password.
+You have register user name and password in config.py.
 When the setup is done you should choose second option : "XXX" to use the application.

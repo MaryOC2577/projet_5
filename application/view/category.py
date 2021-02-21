@@ -7,21 +7,17 @@ class CategoryMenu:
     def __init__(self):
         """Initialize category selection menu."""
         self.main_choice = {
-            "1": "Pain",
-            "2": "Eau minérale",
-            "3": "Soda",
-            "4": "Jus de fruits",
+            "1": "Barre de céréales ",
+            "2": "Eau minérale ",
+            "3": "Pâtisserie ",
+            "4": "Conserve ",
             "5": "Biscuits",
             "6": "Apéritifs",
-            "7": "Beuure",
+            "7": "Surgelé ",
             "8": "Céréales petit déjeuner",
             "9": "Yaourt",
             "10": "Produits laitiers",
             "11": "Produits à tartiner",
-            "12": "Surgelé",
-            "13": "Soupe",
-            "14": "Conserve",
-            "15": "Pâtes alimentaire",
         }
 
     def show(self):

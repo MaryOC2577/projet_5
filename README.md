@@ -24,4 +24,4 @@ How to use
 If you use the application for the first time, choose first option in the main menu
 to create the database and insert data products.
 You have register user name and password in config.py.
-When the setup is done you should choose second option : "XXX" to use the application.
+When the setup is done you should choose second option to use the application.

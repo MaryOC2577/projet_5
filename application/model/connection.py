@@ -25,13 +25,14 @@ class Connection:
         """Close the connection."""
         self.db.close()
 
-    def get_product_page(self, number_per_page: int) -> list:
+    def get_product_page(self, number_of_page: int) -> list:
         """Return a list of products JSON."""
         payload = {
             "search_terms": "",
             "sort_by": "unique_scans_n",
-            "page_size": number_per_page,
-            "content-length": 3000,
+            "page_size": 1000,
+            "page": number_of_page,
+            # "content-length": 3000,
             "json": 1,
         }
         res = requests.get(

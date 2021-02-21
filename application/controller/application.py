@@ -32,7 +32,9 @@ class ApplicationController:
             self.controller = CatMenuController()
         if command.startswith("select-category"):
             category_name = command.split("-")[2]
-            products = self.product.getin_onecategory(category_name)
+            products = self.product.getin_onecategory(
+                category_name.replace(" ", "%")
+            )
             self.controller = ProductMenuController(products)
         if command.startswith("get-product"):
             product_id = command.split("-")[2]

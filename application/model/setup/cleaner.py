@@ -48,8 +48,12 @@ class ProductCleaner:
         category = Category()
         catprod = CatProd()
 
-        connection.get_product_page(1000)
-        self.clean_product(connection.products)
+        number_page = 1
+        max_page = range(5)
+        for number_page in max_page:
+            connection.get_product_page(number_page)
+            self.clean_product(connection.products)
+            number_page += 1
 
         if self.cleaned_products:
             nutriscore.generate()

@@ -66,15 +66,11 @@ class Category:
 
         for name in categories:
             cursor.execute(
-                "SELECT id, cat_name FROM category WHERE cat_name = %s ",
-                (name,),
-            )
-            id = cursor.fetchone()[0]
-            category_ids.append(id)
-            # try:
-
-            # except TypeError as error:
-            #    breakpoint()
+                    "SELECT id, cat_name FROM category WHERE cat_name = %s ",
+                    (name,),
+                )
+                id = cursor.fetchone()[0]
+                category_ids.append(id)
 
         cursor.close()
         return category_ids

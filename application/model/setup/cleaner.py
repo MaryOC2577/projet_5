@@ -34,8 +34,8 @@ class ProductCleaner:
                 "description": product.get("generic_name"),
                 "stores": product.get("stores"),
                 "categories": (product.get("categories").replace("fr:", ""))
-                .split(",")
-                .strip(" "),
+                .strip()
+                .split(","),
                 "nutriscore": (product.get("nutrition_grade_fr")).upper(),
                 "url": product.get("url"),
             }

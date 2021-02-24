@@ -14,7 +14,7 @@ class FavoritesController:
 
     def input(self):
         """Handle no input."""
-        return ""
+        return "main-menu"
 
     def show(self):
         """Show the favorites substitutes."""

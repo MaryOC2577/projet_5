@@ -55,21 +55,26 @@ class Category:
         """Save categories in the database."""
         cursor = connection.get_cursor()
 
-        sql = "INSERT IGNORE INTO CATEGORY (cat_name) VALUES (%(name)s)"
+        sql = "INSERT IGNORE INTO CATEGORY (cat_name) VALUES (%s)"
 
         for name in categories:
-            data_categories = {"name": name}
+            data_categories = (name,)
             cursor.execute(sql, data_categories)
 
         connection.db.commit()
         category_ids = []
 
         for name in categories:
-            cursor.execute(
-                "SELECT id, cat_name FROM category WHERE cat_name = %s", (name,)
-            )
-            id = cursor.fetchone()[0]
-            category_ids.append(id)
+            try:
+
+                cursor.execute(
+                    "SELECT id, cat_name FROM category WHERE cat_name = %s ",
+                    (name,),
+                )
+                id = cursor.fetchone()[0]
+                category_ids.append(id)
+            #except TypeError as error:
+            #    breakpoint()
 
         cursor.close()
         return category_ids

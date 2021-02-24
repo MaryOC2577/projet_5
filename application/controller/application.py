@@ -51,5 +51,5 @@ class ApplicationController:
             self.controller = FavoritesController()
         if command == "quit":
             self.running = False
-        if command == "":
+        if command == "main-menu":
             self.controller = MainController()

@@ -30,12 +30,12 @@ class ProductCleaner:
             if not product.get("categories_lc") == "fr":
                 continue
             clean_product = {
-                "name": product.get("product_name_fr"),
+                "name": product.get("product_name_fr").strip(" "),
                 "description": product.get("generic_name"),
                 "stores": product.get("stores"),
-                "categories": (
-                    product.get("categories").replace("fr:", "")
-                ).split(","),
+                "categories": (product.get("categories").replace("fr:", ""))
+                .split(",")
+                .strip(" "),
                 "nutriscore": (product.get("nutrition_grade_fr")).upper(),
                 "url": product.get("url"),
             }

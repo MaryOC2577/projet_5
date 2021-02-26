@@ -33,8 +33,9 @@ class ProductCleaner:
                 "name": product.get("product_name_fr").strip(" "),
                 "description": product.get("generic_name"),
                 "stores": product.get("stores"),
-                "categories": (product.get("categories").replace("fr:", ""))
+                "categories": product.get("categories")
                 .strip()
+                .replace("fr:", "")
                 .split(","),
                 "nutriscore": (product.get("nutrition_grade_fr")).upper(),
                 "url": product.get("url"),
@@ -49,7 +50,7 @@ class ProductCleaner:
         catprod = CatProd()
 
         number_page = 1
-        max_page = range(5)
+        max_page = range(3)
         for number_page in max_page:
             connection.get_product_page(number_page)
             self.clean_product(connection.products)

@@ -8,17 +8,31 @@ from config import SCRIPTSQL
 class InitDatabase:
     """Initiate database."""
 
-    def setup_database(self):
-        """Set the database."""
-        mydb = mysql.connector.connect(
+    def __init__(self):
+        """Initialisze database."""
+        self.mydb = mysql.connector.connect(
             host="localhost",
             user="root",
             password="Ma25Bo77Yi181",
             database="product",
         )
-        mycursor = mydb.cursor()
-        # mycursor.execute("CREATE DATABASE product")
-        # mycursor.execute("USE DATABASE product")
+
+    def create_database(self):
+        """Create the database."""
+        mycursor = self.mydb.cursor()
+        mycursor.execute("CREATE DATABASE product;")
+        self.mydb.commit()
+        mycursor.close()
+
+    def use_database(self):
+        """Use the database."""
+        mycursor.execute("USE product;")
+        self.mydb.commit()
+        mycursor.close()
+
+    def setup_database(self):
+        """Set the database."""
+        mycursor = self.mydb.cursor()
 
         fd = open(SCRIPTSQL, "r")
         sqlFile = fd.read()
@@ -30,6 +44,7 @@ class InitDatabase:
             except IOError as msg:
                 msg = "Command skipped"
                 print(msg)
+        mycursor.close()
 
 
 initbase = InitDatabase()

@@ -17,25 +17,33 @@ MySQL version : 3.5.2
 
 Setup the database
 Before using the application, install MySQL version 3.5.2 in localhost.
-Step 1 : create a user and set a password with root access
+Step 1
+Create a user and set a password with root access.
 CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'mypassword';
-Step 2 : grant privileges to the user
+Step 2
+Grant privileges to the new user.
 GRANT ALL PRIVILEGES ON * . * TO 'new_user'@'localhost';
-Setp 3 : launch mysql with the new user account
-Step 4 : execute the following instructions in SQL
+Setp 3
+Launch mysql with the new user account.
+Step 4
+Execute the following instructions in SQL.
 CREATE DATABASE product;
 USE DATABASE product;
 
 Setup the program
-Step 1 : open the project in Visual Studio Code
-Step 2 : Create a virtual environment in the project by executing the following commands in the terminal
+Step 1
+Open the project in Visual Studio Code.
+Step 2
+Create a virtual environment in the project by executing the following commands in the terminal.
 python -m venv .venv : 
 . .venv.Scripts.activate 
-Step 3 : enter user and password in file config.py
-Step 4 : launch the application with the command python main.py in Visual Studio Code
+Step 3
+Change user and password in file config.py, use the one created in mysql.
+Step 4
+Launch the application with the command python main.py in Visual Studio Code.
 
 How to use
-If you use the application for the first time, choose first option in the main menu
-to create the database and insert data products.
-If have register user name and password in config.py when the setup is done you 
+On first use of the application choose first option in the main menu
+to create the database and insert data.
+If you have register user name and password in config file when the setup is done you 
 should choose second option to use the application.

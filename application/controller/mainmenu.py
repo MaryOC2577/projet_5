@@ -20,7 +20,7 @@ class MainController:
         if self.choice == "2":
             self.input_choice = "substitute"
         if self.choice == "3":
-            self.main_menu.get_message("Vous allez quitter l'application.")
+            self.main_menu.get_message("Retour au menu principal.")
             self.input_choice = "quit"
         return self.input_choice
 

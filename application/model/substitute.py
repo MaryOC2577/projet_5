@@ -50,7 +50,7 @@ class SubstiModel:
             "inner join nutriscore ON nutriscore.id = product.nutri_id "
             f"where category.cat_name='{category_name}' "
             "order by nutriscore.nutri_value "
-            "limit 4;"
+            "limit 10;"
         )
 
         cursor.execute(sql)

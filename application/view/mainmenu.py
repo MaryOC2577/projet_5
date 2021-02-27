@@ -9,7 +9,7 @@ class MainMenu:
         self.main_choice = {
             "1": "Quel aliment souhaitez-vous remplacer ?",
             "2": "Retrouvez mes aliments substitués",
-            "3": "Quitter",
+            "3": "Menu principal",
         }
         self.message = ""
 

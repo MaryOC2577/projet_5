@@ -26,6 +26,7 @@ class InitDatabase:
 
     def use_database(self):
         """Use the database."""
+        mycursor = self.mydb.cursor()
         mycursor.execute("USE product;")
         self.mydb.commit()
         mycursor.close()

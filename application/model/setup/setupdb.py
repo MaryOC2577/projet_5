@@ -23,6 +23,7 @@ class InitDatabase:
         mycursor.execute("CREATE DATABASE product;")
         self.mydb.commit()
         mycursor.close()
+        print("La création de la base de données est bien effectuée.")
 
     def use_database(self):
         """Use the database."""

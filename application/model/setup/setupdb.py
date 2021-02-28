@@ -14,23 +14,18 @@ class InitDatabase:
             host="localhost",
             user="root",
             password="Ma25Bo77Yi181",
-            database="product",
+            # database="product",
         )
 
     def create_database(self):
         """Create the database."""
         mycursor = self.mydb.cursor()
         mycursor.execute("CREATE DATABASE product;")
-        self.mydb.commit()
-        mycursor.close()
-        print("La création de la base de données est bien effectuée.")
 
     def use_database(self):
         """Use the database."""
         mycursor = self.mydb.cursor()
         mycursor.execute("USE product;")
-        self.mydb.commit()
-        mycursor.close()
 
     def setup_database(self):
         """Set the database."""

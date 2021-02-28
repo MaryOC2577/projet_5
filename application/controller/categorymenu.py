@@ -15,6 +15,8 @@ class CatMenuController:
         choice = input()
         if choice in self.category_menu.main_choice:
             category_name = self.category_menu.main_choice[choice]
+            if category_name == "Menu principal":
+                return "main-menu"
             return "select-category-" + category_name
         return ""
 

@@ -11,8 +11,8 @@ while RUNNING:
         "1- Installation de la base de données\n2- Application\n3- Quitter\n"
     )
     if choice == "1":
-        initbase.create_database()
-        initbase.use_database()
+        # initbase.create_database()
+        # initbase.use_database()
         print(
             "L'installation de la base de données peut prendre "
             "quelques minutes.\n"

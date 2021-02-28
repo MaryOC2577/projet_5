@@ -14,7 +14,7 @@ class InitDatabase:
             host="localhost",
             user="root",
             password="Ma25Bo77Yi181",
-            # database="product",
+            database="product",
         )
 
     def create_database(self):

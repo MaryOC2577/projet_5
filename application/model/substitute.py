@@ -14,7 +14,13 @@ class SubstiModel:
         """Get a list of all substitutes."""
         cursor = connection.get_cursor()
 
-        sql = "select * from product where substitute is not null;"
+        sql = (
+            "select product.id, product_name, product_description, nutri_value, "
+            "product.substitute "
+            "from product "
+            "inner join nutriscore ON product.nutri_id = nutriscore.id "
+            "where product.substitute is not null;"
+        )
 
         cursor.execute(sql)
         substi_list = []

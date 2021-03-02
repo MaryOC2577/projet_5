@@ -9,7 +9,7 @@ class Favorites:
 
     def show(self, subsitutes):
         """Show  substitutes in database."""
-        print("Liste des substituts enregistrés : ")
+        print("Liste des aliments ayant des substituts enregistrés : ")
         for substitute in subsitutes:
             print(
                 substitute[0],
@@ -19,4 +19,7 @@ class Favorites:
                 substitute[2],
                 " - ",
                 substitute[3],
+                " - ",
+                "Substitut :",
+                substitute[4],
             )

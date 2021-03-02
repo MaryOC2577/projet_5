@@ -2,6 +2,7 @@
 
 import mysql.connector
 import requests
+from config import PASSWORD, USER_NAME
 
 
 class Connection:
@@ -11,8 +12,8 @@ class Connection:
         """Initialize."""
         self.db = mysql.connector.connect(
             host="localhost",
-            user="root",
-            password="Ma25Bo77Yi181",
+            user=USER_NAME,
+            password=PASSWORD,
             database="product",
         )
         self.products = []

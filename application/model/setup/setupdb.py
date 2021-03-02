@@ -2,7 +2,7 @@
 
 
 import mysql.connector
-from config import SCRIPTSQL
+from config import SCRIPTSQL, PASSWORD, USER_NAME
 
 
 class InitDatabase:
@@ -12,8 +12,8 @@ class InitDatabase:
         """Initialisze database."""
         self.mydb = mysql.connector.connect(
             host="localhost",
-            user="root",
-            password="Ma25Bo77Yi181",
+            user=USER_NAME,
+            password=PASSWORD,
             database="product",
         )
 

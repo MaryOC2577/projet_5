@@ -16,8 +16,9 @@ class ProductMenuController:
 
     def input(self):
         """Handle input user of the product menu."""
-        self.choice = input()
-        return "get-product-" + self.choice
+        while True:
+            self.choice = input()
+            return "get-product-" + self.choice
 
     def show_one(self, product_id):
         """Show one product with id."""

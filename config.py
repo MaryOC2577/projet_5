@@ -9,3 +9,6 @@ DATA_DIR = APP_DIR / "data"
 
 
 SCRIPTSQL = DATA_DIR / "scriptsql.sql"
+
+USER_NAME = "root"
+PASSWORD = "Ma25Bo77Yi181"

@@ -16,7 +16,7 @@ while RUNNING:
         print(
             "L'installation de la base de données peut prendre "
             "quelques minutes.\n"
-            "Veuillez patientez..."
+            "Veuillez patienter..."
         )
         initbase.setup_database()
         productsCleaned = ProductCleaner()

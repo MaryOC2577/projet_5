@@ -7,26 +7,26 @@ class Favorites:
     def __init__(self):
         """Initialize favorites display menu."""
 
-    def show(self, subsitutes):
+    def show(self, substitutes):
         """Show  substitutes in database."""
         print("Liste des aliments ayant des substituts enregistrés : ")
-        for substitute in subsitutes:
+        for favorite in substitutes:
             print(
                 "Produit d'origine :\n",
-                substitute[0],
+                favorite[0],
                 " - ",
-                substitute[1],
+                favorite[1],
                 " - ",
-                substitute[2],
+                favorite[2],
                 " - ",
-                substitute[3],
+                favorite[3],
                 "\n",
                 "Substitut :\n",
-                substitute[4],
+                favorite[4],
                 " - ",
-                substitute[5],
+                favorite[5],
                 " - ",
-                substitute[6],
+                favorite[6],
                 " - ",
-                substitute[7],
+                favorite[7],
             )

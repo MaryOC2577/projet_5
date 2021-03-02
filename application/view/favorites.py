@@ -12,6 +12,7 @@ class Favorites:
         print("Liste des aliments ayant des substituts enregistrés : ")
         for substitute in subsitutes:
             print(
+                "Produit d'origine :\n",
                 substitute[0],
                 " - ",
                 substitute[1],
@@ -19,7 +20,13 @@ class Favorites:
                 substitute[2],
                 " - ",
                 substitute[3],
-                " - ",
-                "Substitut :",
+                "\n",
+                "Substitut :\n",
                 substitute[4],
+                " - ",
+                substitute[5],
+                " - ",
+                substitute[6],
+                " - ",
+                substitute[7],
             )

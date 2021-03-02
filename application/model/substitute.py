@@ -15,13 +15,16 @@ class SubstiModel:
         cursor = connection.get_cursor()
 
         sql = (
-            "select product.id, product_name, product_description, nutri_value, "
-            "product.substitute "
-            "from product "
-            "inner join nutriscore ON product.nutri_id = nutriscore.id "
-            "where product.substitute is not null;"
+            "select substituted.id, substituted.product_name, substituted.product_description, "
+            "nutri_ted.nutri_value, substi.id, substi.product_name, substi.product_description, "
+            "substi.nutri_value from product as substituted "
+            "inner join nutriscore as nutri_ted on nutri_ted.id = substituted.nutri_id "
+            "inner join "
+            "(select substitute.id, substitute.product_name, substitute.product_description, "
+            "nutri_te.nutri_value from product as substitute "
+            "inner join nutriscore as nutri_te on nutri_te.id = substitute.nutri_id) as substi "
+            "on substituted.substitute = substi.id;"
         )
-
         cursor.execute(sql)
         substi_list = []
         for substitut in cursor.fetchall():

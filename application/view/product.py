@@ -6,6 +6,7 @@ class ProductMenu:
 
     def __init__(self):
         """Initialize product selection menu."""
+        self.message = ""
 
     def show_one(self, product):
         """Show on prouct with id."""
@@ -13,6 +14,11 @@ class ProductMenu:
         print(
             product[0], " - ", product[1], " - ", product[2], " - ", product[3]
         )
+
+    def get_message(self, message):
+        """Get get a message based on user choice."""
+        print(message)
+        self.message = ""
 
     def show(self, products):
         """Show the product selection menu."""

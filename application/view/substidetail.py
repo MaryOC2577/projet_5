@@ -11,6 +11,11 @@ class SubstiDetail:
         """Show a confirmation of substitute save."""
         print("Le substitut a été enregistré.")
 
+    def get_message(self, message):
+        """Get get a message based on user choice."""
+        print(message)
+        self.message = ""
+
     def show(self, products):
         """Show a substitute."""
         print("Substituts disponibles pour le produit sélectionné : ")

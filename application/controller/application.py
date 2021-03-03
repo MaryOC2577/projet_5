@@ -28,9 +28,9 @@ class ApplicationController:
 
     def update(self, command: str):
         """Update the application."""
-        if command == "category_choice":
+        if command == "category-choice":
             self.controller = CatMenuController()
-        if command.startswith("select-category"):
+        if command.startswith("get-category"):
             category_name = command.split("-")[2]
             products = self.product.getin_onecategory(
                 category_name.replace(" ", "%")

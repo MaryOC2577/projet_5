@@ -27,3 +27,4 @@ class SubstiDetail:
                 product[4],
             )
         print("Choisir le substitut à sauvegarder : ")
+        print("0 puis entrée pour retourner au menu principal.")

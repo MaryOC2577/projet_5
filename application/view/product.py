@@ -19,3 +19,4 @@ class ProductMenu:
         print("Bienvenue sur la page produits, Sélectionnez l'aliment : ")
         for product in products:
             print(product[0], " - ", product[1], " - ", product[2])
+        print("0 puis entrée pour retourner au menu principal.")

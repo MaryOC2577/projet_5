@@ -18,7 +18,10 @@ class SubstiDetailController:
     def input(self):
         """Handle input user of the substi detail menu."""
         choice = input()
-        return "get-substitute-" + choice + "-" + str(self.product[0])
+        if choice == "0":
+            return "main-menu"
+        else:
+            return "get-substitute-" + choice + "-" + str(self.product[0])
 
     def save_confirmed(self):
         """Save substitute confirmed."""

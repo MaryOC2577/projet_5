@@ -6,6 +6,7 @@ class SubstiDetail:
 
     def __init__(self):
         """Initialize substitute detail menu."""
+        self.message = ""
 
     def save_confirmed(self):
         """Show a confirmation of substitute save."""

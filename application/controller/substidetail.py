@@ -18,6 +18,8 @@ class SubstiDetailController:
     def input(self):
         """Handle input user of the substi detail menu."""
         choice = input()
+        if choice == "":
+            return "get-product"
         if choice == "0":
             return "main-menu"
         else:

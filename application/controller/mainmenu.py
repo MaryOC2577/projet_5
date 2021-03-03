@@ -16,7 +16,7 @@ class MainController:
         """Handle input user of the main menu."""
         self.choice = input()
         if self.choice == "1":
-            self.input_choice = "category_choice"
+            self.input_choice = "category-choice"
         if self.choice == "2":
             self.input_choice = "substitute"
         if self.choice == "3":

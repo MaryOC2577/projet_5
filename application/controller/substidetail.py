@@ -18,8 +18,19 @@ class SubstiDetailController:
     def input(self):
         """Handle input user of the substi detail menu."""
         choice = input()
-        if choice == "":
-            return "get-product"
+        check_substitute = []
+
+        for substitute in self.subsittutes.show(
+            self.cat_name.get_name(self.product[0])
+        ):
+            check_substitute.append(substitute[0])
+
+        while choice not in str(check_substitute):
+            self.substidetail_view.get_message("Erreur de saisie.")
+            self.show()
+            choice = input()
+            return "get-substitute-" + choice + "-" + str(self.product[0])
+
         if choice == "0":
             return "main-menu"
         else:
